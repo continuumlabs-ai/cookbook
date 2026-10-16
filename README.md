@@ -63,6 +63,10 @@ uv run agents/contract-review/recipe.py
 
 [`au/checks.py`](au/checks.py) holds the checks every recipe can lean on, in plain code: ABN, ACN, TFN and Medicare check digits, tax file number redaction before text reaches a model, GST arithmetic, BSB and postcode checks, and dates read day first. Copy it into your own project.
 
+### Australian work scorecard
+
+How well do open models do this work? [The scorecard](scorecard/) runs every recipe against several models each week and marks the results against [published answers](scorecard/answers.json). Latest results: [`scorecard` branch](https://github.com/continuumlabs-ai/cookbook/tree/scorecard).
+
 ### Coming next
 
 CPS 230 service provider register. AUSTRAC suspicious matter narratives. Legal citations to the AGLC. Site voice memo to a quote with GST. Freedom of information triage. Meeting recording to minutes. Guides for LangGraph, LlamaIndex, the OpenAI Agents SDK and the Vercel AI SDK.

@@ -65,3 +65,40 @@ jobs:
           git add -A
           git commit -qm "Live run ${{ github.run_id }} [skip ci]"
           git push -qf "https://x-access-token:${{ github.token }}@github.com/${{ github.repository }}.git" live-results
+
+  scorecard:
+    name: Australian work scorecard
+    runs-on: ubuntu-latest
+    needs: offline
+    # Weekly, on demand, or when a commit message contains [scorecard]. It calls several models, so not on every push.
+    if: ${{ vars.LIVE_TESTS == 'true' && (github.event_name == 'schedule' || github.event_name == 'workflow_dispatch' || contains(github.event.head_commit.message, '[scorecard]')) }}
+    permissions:
+      contents: write
+    env:
+      CONTINUUM_API_KEY: ${{ secrets.CONTINUUM_API_KEY }}
+      CONTINUUM_BASE_URL: ${{ vars.CONTINUUM_BASE_URL }}
+      CONTINUUM_SCORECARD_MODELS: ${{ vars.CONTINUUM_SCORECARD_MODELS || vars.CONTINUUM_MODEL }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install -r requirements.txt
+      - run: mkdir -p output/scorecard && python scorecard/run.py --out output/scorecard 2>&1 | tee output/scorecard/console.txt
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: scorecard
+          path: output/scorecard/
+      - name: Publish to the scorecard branch
+        if: always() && github.event_name != 'pull_request'
+        run: |
+          cp scorecard/answers.json output/scorecard/
+          cd output/scorecard
+          [ -f scorecard.md ] && cp scorecard.md README.md
+          git init -q -b scorecard
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git commit -qm "Scorecard run ${{ github.run_id }} [skip ci]"
+          git push -qf "https://x-access-token:${{ github.token }}@github.com/${{ github.repository }}.git" scorecard
