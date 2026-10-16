@@ -158,7 +158,45 @@ Work like this:
 3. Submit an answer of a few short paragraphs. Put [1], [2] and so on after each claim.
    Citation 1 is the first item in the citations list, citation 2 the second, and so on.
    Each citation's quote must be copied word for word from the document. Keep quotes short.
+   Every figure in a sentence must appear in a quote that sentence cites.
 If the library does not answer part of the question, say so plainly. Never guess."""
+
+
+# A figure worth checking: a percentage, a dollar amount, a decimal, or a number of three or more digits.
+# Years such as 2026 are left alone.
+FIGURE = re.compile(r"\$?\d[\d,]*(?:\.\d+)?%?")
+
+
+def figures_in(text):
+    found = set()
+    for raw in FIGURE.findall(text):
+        value = raw.replace(",", "").rstrip(".")
+        digits = value.strip("$%")
+        if re.fullmatch(r"(19|20)\d\d", digits):
+            continue
+        if "%" in value or "$" in value or "." in digits or len(digits) >= 3:
+            found.add(value)
+    return found
+
+
+def unsupported_figures(answer, citations):
+    """Check 2, in plain code: every figure in a cited sentence must appear in a quote that sentence cites."""
+    problems = []
+    for sentence in re.split(r"(?<=[.!?])\s+|\n+", answer):
+        cited = [int(m) for m in re.findall(r"\[(\d+)\]", sentence)]
+        if not cited:
+            continue
+        quotes = " ".join(str(citations[n - 1].get("quote", "")) for n in cited if 1 <= n <= len(citations))
+        quote_figures = {f.strip("$") for f in figures_in(quotes)}
+        text = re.sub(r"\[\d+\]", "", sentence)
+        for figure in sorted(figures_in(text)):
+            if figure.strip("$") not in quote_figures:
+                short = sentence.strip()[:90]
+                problems.append(
+                    f"the figure {figure} in \"{short}\" is not in the quote it cites. "
+                    "Cite a quote that contains it, or remove it"
+                )
+    return problems
 
 
 class Session:
@@ -200,6 +238,8 @@ class Session:
         for n in sorted(used):
             if n < 1 or n > len(citations):
                 problems.append(f"the answer refers to [{n}] but there is no citation {n}")
+        if not problems:
+            problems += unsupported_figures(answer, citations)
         if problems:
             self.rejections.append(problems)
             return "Error: answer not accepted. Fix these and submit again: " + "; ".join(problems) + "."
@@ -279,7 +319,7 @@ def report_markdown(question, session, claims):
     lines += [session.answer, "", "## Sources", ""]
     for n, c in enumerate(session.citations, start=1):
         lines.append(f"{n}. {c['doc_id']}: “{c['quote']}”")
-    lines += ["", "## Verification", "", "Every quote was found word for word in its source document."]
+    lines += ["", "## Verification", "", "Every quote was found word for word in its source document, and every figure in the answer appears in a quote it cites."]
     for problems in session.rejections:
         lines.append(f"An earlier draft was rejected and corrected: {'; '.join(problems)}.")
     lines.append("")
