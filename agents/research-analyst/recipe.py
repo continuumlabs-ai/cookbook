@@ -1,4 +1,8 @@
 #!/usr/bin/env python3
+# /// script
+# requires-python = ">=3.10"
+# dependencies = ["openai>=1.40"]
+# ///
 """Research analyst agent.
 
 Answers a question from your own documents. The agent searches, reads, and
@@ -22,6 +26,7 @@ from pathlib import Path
 HERE = Path(__file__).parent
 DEFAULT_BASE_URL = "https://api.continuumlabs.ai/v1"
 DEFAULT_MODEL = "glm-5.2"
+DEMO_NOTE = "> Demonstration output. The model's replies were scripted. Run without --demo for a live result.\n\n"
 DEFAULT_QUESTION = "Is the member enquiry AI pilot ready for a wider launch? What conditions are still outstanding?"
 
 
@@ -35,6 +40,15 @@ def make_client():
     except ImportError:
         sys.exit("Install the requirements first: pip install -r requirements.txt")
     return OpenAI(base_url=os.environ.get("CONTINUUM_BASE_URL", DEFAULT_BASE_URL), api_key=key)
+
+
+def demo_client(name):
+    """Load a scripted model run from the repository's demo folder."""
+    sys.path.insert(0, str(HERE.parents[1]))
+    from demo import scripts
+
+    print(scripts.BANNER)
+    return getattr(scripts, name)()
 
 
 # ---------------------------------------------------------------------------
@@ -152,6 +166,7 @@ class Session:
         self.library = library
         self.answer = None
         self.citations = []
+        self.rejections = []  # what the citation check caught
 
     def handle(self, name, args):
         if name == "search_documents":
@@ -186,6 +201,7 @@ class Session:
             if n < 1 or n > len(citations):
                 problems.append(f"the answer refers to [{n}] but there is no citation {n}")
         if problems:
+            self.rejections.append(problems)
             return "Error: answer not accepted. Fix these and submit again: " + "; ".join(problems) + "."
         self.answer, self.citations = answer, citations
         return "Answer accepted."
@@ -263,7 +279,10 @@ def report_markdown(question, session, claims):
     lines += [session.answer, "", "## Sources", ""]
     for n, c in enumerate(session.citations, start=1):
         lines.append(f"{n}. {c['doc_id']}: “{c['quote']}”")
-    lines += ["", "## Verification", "", "Every quote was found word for word in its source document.", ""]
+    lines += ["", "## Verification", "", "Every quote was found word for word in its source document."]
+    for problems in session.rejections:
+        lines.append(f"An earlier draft was rejected and corrected: {'; '.join(problems)}.")
+    lines.append("")
     if claims is None:
         lines.append("The claim-by-claim check could not run. Review the answer by hand.")
     else:
@@ -280,16 +299,17 @@ def main():
     parser.add_argument("--docs", default=HERE / "data" / "docs", type=Path)
     parser.add_argument("--out", default=Path("output") / "research-analyst", type=Path)
     parser.add_argument("--model", default=os.environ.get("CONTINUUM_MODEL", DEFAULT_MODEL))
+    parser.add_argument("--demo", action="store_true", help="Run a scripted demonstration. No API key needed.")
     args = parser.parse_args()
 
-    client = make_client()
+    client = demo_client("research_analyst_client") if args.demo else make_client()
     library = Library(args.docs)
     session = research(client, args.model, library, args.question)
     claims = verify(client, args.model, session.answer, session.citations) if session.answer else None
 
     report = report_markdown(args.question, session, claims)
     args.out.mkdir(parents=True, exist_ok=True)
-    (args.out / "answer.md").write_text(report)
+    (args.out / "answer.md").write_text((DEMO_NOTE if args.demo else "") + report)
     (args.out / "answer.json").write_text(
         json.dumps({"question": args.question, "answer": session.answer, "citations": session.citations,
                     "claims": claims}, indent=2)

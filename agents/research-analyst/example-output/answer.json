@@ -1,0 +1,91 @@
+{
+  "question": "Is the member enquiry AI pilot ready for a wider launch? What conditions are still outstanding?",
+  "answer": "Not yet. The board made any wider launch conditional on the Risk Committee confirming the accuracy threshold [1]. The committee set that threshold at 95% of 500 real member enquiries answered correctly [2]. The pilot scored 93.4% [3], so the threshold has not been met.\n\nThe other two board conditions are in hand. Member data must stay in Australia [4], and no member data left Australia during the pilot [5]. Every answer must be reviewed by staff before it is sent [6]. The documents do not say how that review performed at scale.\n\nThe committee also asked for the hand-off rate [7]. The pilot handed 12% of enquiries to a person [8].",
+  "citations": [
+    {
+      "doc_id": "board-minutes-2026-08",
+      "quote": "The Risk Committee must confirm the pilot meets its accuracy threshold before any wider launch."
+    },
+    {
+      "doc_id": "risk-committee-2026-09",
+      "quote": "must answer at least 95% of a test set of 500 real member enquiries correctly"
+    },
+    {
+      "doc_id": "pilot-results-2026-10",
+      "quote": "467 were correct, an accuracy of 93.4%"
+    },
+    {
+      "doc_id": "board-minutes-2026-08",
+      "quote": "Member data must be stored and processed in Australia."
+    },
+    {
+      "doc_id": "pilot-results-2026-10",
+      "quote": "No member data left Australia during the pilot."
+    },
+    {
+      "doc_id": "board-minutes-2026-08",
+      "quote": "Every answer sent to a member must be reviewed by a staff member before it is sent."
+    },
+    {
+      "doc_id": "risk-committee-2026-09",
+      "quote": "report how often the assistant hands an enquiry to a person"
+    },
+    {
+      "doc_id": "pilot-results-2026-10",
+      "quote": "The assistant handed 12% of enquiries to a person."
+    }
+  ],
+  "claims": [
+    {
+      "claim": "Wider launch depends on the Risk Committee confirming the accuracy threshold.",
+      "citations": [
+        1
+      ],
+      "supported": true,
+      "reason": "Stated in the board minutes."
+    },
+    {
+      "claim": "The threshold is 95% of 500 real member enquiries.",
+      "citations": [
+        2
+      ],
+      "supported": true,
+      "reason": "Stated in the committee minutes."
+    },
+    {
+      "claim": "The pilot scored 93.4%, below the threshold.",
+      "citations": [
+        2,
+        3
+      ],
+      "supported": true,
+      "reason": "93.4% is below 95%."
+    },
+    {
+      "claim": "Member data must stay in Australia, and none left during the pilot.",
+      "citations": [
+        4,
+        5
+      ],
+      "supported": true,
+      "reason": "Both stated directly."
+    },
+    {
+      "claim": "Every answer must be reviewed by staff before it is sent.",
+      "citations": [
+        6
+      ],
+      "supported": true,
+      "reason": "Stated in the board minutes."
+    },
+    {
+      "claim": "The pilot handed 12% of enquiries to a person.",
+      "citations": [
+        7,
+        8
+      ],
+      "supported": true,
+      "reason": "Stated in the pilot results."
+    }
+  ]
+}

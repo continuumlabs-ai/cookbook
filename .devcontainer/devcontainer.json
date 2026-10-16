@@ -1,0 +1,19 @@
+{
+  "name": "Continuum Labs Cookbook",
+  "image": "mcr.microsoft.com/devcontainers/python:3.12",
+  "postCreateCommand": "pip install -r requirements.txt",
+  "postAttachCommand": "echo 'Try a recipe now: python agents/contract-review/recipe.py --demo'",
+  "customizations": {
+    "codespaces": {
+      "openFiles": ["agents/contract-review/README.md"]
+    },
+    "vscode": {
+      "extensions": ["ms-python.python"]
+    }
+  },
+  "secrets": {
+    "CONTINUUM_API_KEY": {
+      "description": "Your Continuum Labs API key. Leave it blank and use --demo to try the recipes without one."
+    }
+  }
+}

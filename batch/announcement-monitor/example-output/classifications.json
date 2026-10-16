@@ -1,0 +1,96 @@
+[
+  {
+    "company": "Brindle Property Trust",
+    "category": "governance_routine",
+    "material": false,
+    "direction": "neutral",
+    "headline": "Director buys 50,000 units on market at $2.18",
+    "summary": "Small on-market purchase by a non-executive director.",
+    "key_figures": [
+      "50,000",
+      "$2.18"
+    ],
+    "dropped_figures": [],
+    "source": "brindle-property-director-interest.txt",
+    "corrected": false
+  },
+  {
+    "company": "Coralwave Health Ltd",
+    "category": "capital_raising",
+    "material": true,
+    "direction": "mixed",
+    "headline": "$85m placement at a 9.5% discount to buy 14 day-surgery clinics",
+    "summary": "Dilutive raise funds most of a $120m acquisition, with the balance from debt. Management expects the deal to add to earnings per share in its first full year.",
+    "key_figures": [
+      "$85m",
+      "$1.42",
+      "9.5%",
+      "$120m"
+    ],
+    "dropped_figures": [],
+    "source": "coralwave-health-placement.txt",
+    "corrected": false
+  },
+  {
+    "company": "Ironbark Minerals Ltd",
+    "category": "guidance",
+    "material": true,
+    "direction": "negative",
+    "headline": "Copper guidance cut after pit wall failure closes haul road",
+    "summary": "FY27 production guidance falls about 15% at the midpoint and sustaining costs rise 12%. The main haul road is expected to be closed for eight weeks. No injuries.",
+    "key_figures": [
+      "180-195kt",
+      "210-230kt",
+      "12%",
+      "A$4.85/lb"
+    ],
+    "dropped_figures": [
+      "$5.00/lb"
+    ],
+    "source": "ironbark-minerals-guidance.txt",
+    "corrected": false
+  },
+  {
+    "company": "Quokka Software Ltd",
+    "category": "results",
+    "material": true,
+    "direction": "positive",
+    "headline": "Revenue up 31% and first positive operating cash flow",
+    "summary": "Half-year revenue of $48.2m, recurring revenue of $112m and $3.1m of operating cash flow. Full-year guidance unchanged.",
+    "key_figures": [
+      "$48.2m",
+      "31%",
+      "$112m",
+      "$3.1m"
+    ],
+    "dropped_figures": [],
+    "source": "quokka-software-half-year.txt",
+    "corrected": false
+  },
+  {
+    "company": "Tasman Freight Group",
+    "category": "management_change",
+    "material": true,
+    "direction": "negative",
+    "headline": "Chief Executive of six years resigns, effective 31 January 2027",
+    "summary": "The board is searching internally and externally. The Chief Financial Officer will act as interim Chief Executive if no successor is appointed in time.",
+    "key_figures": [
+      "31 January 2027"
+    ],
+    "dropped_figures": [],
+    "source": "tasman-freight-ceo.txt",
+    "corrected": true
+  },
+  {
+    "company": "Wattle Energy Ltd",
+    "category": "governance_routine",
+    "material": false,
+    "direction": "neutral",
+    "headline": "All annual general meeting resolutions passed",
+    "summary": "Routine result. No change to the business.",
+    "key_figures": [],
+    "dropped_figures": [],
+    "source": "wattle-energy-agm.txt",
+    "corrected": false
+  }
+]

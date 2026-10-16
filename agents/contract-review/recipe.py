@@ -1,4 +1,8 @@
 #!/usr/bin/env python3
+# /// script
+# requires-python = ">=3.10"
+# dependencies = ["openai>=1.40"]
+# ///
 """Contract review agent.
 
 Checks every clause of a contract against your organisation's policy playbook.
@@ -19,6 +23,7 @@ from pathlib import Path
 HERE = Path(__file__).parent
 DEFAULT_BASE_URL = "https://api.continuumlabs.ai/v1"
 DEFAULT_MODEL = "glm-5.2"
+DEMO_NOTE = "> Demonstration output. The model's replies were scripted. Run without --demo for a live result.\n\n"
 
 STATUSES = {"compliant", "exception", "missing"}
 RISKS = {"low", "medium", "high"}
@@ -38,6 +43,15 @@ def make_client():
     except ImportError:
         sys.exit("Install the requirements first: pip install -r requirements.txt")
     return OpenAI(base_url=os.environ.get("CONTINUUM_BASE_URL", DEFAULT_BASE_URL), api_key=key)
+
+
+def demo_client(name):
+    """Load a scripted model run from the repository's demo folder."""
+    sys.path.insert(0, str(HERE.parents[1]))
+    from demo import scripts
+
+    print(scripts.BANNER)
+    return getattr(scripts, name)()
 
 
 # ---------------------------------------------------------------------------
@@ -127,6 +141,7 @@ class Review:
         self.findings = {}
         self.summary = ""
         self.done = False
+        self.rejected = 0  # findings the code sent back for correction
 
     def outstanding(self):
         return [t for t in self.policies if t not in self.findings]
@@ -160,6 +175,7 @@ class Review:
             if not str(args.get("explanation", "")).strip():
                 problems.append("explanation is required")
             if problems:
+                self.rejected += 1
                 return "Error: finding not recorded. " + "; ".join(problems) + "."
             self.findings[args["topic"]] = {
                 "topic": args["topic"],
@@ -282,6 +298,11 @@ def report_markdown(review):
     if review.summary:
         lines += [review.summary, ""]
     lines += [f"{len(issues)} of {len(rows)} policy topics need attention.", ""]
+    if review.rejected:
+        lines += [f"The code rejected {review.rejected} malformed finding(s), which the agent then corrected.", ""]
+    skipped = [f["topic"] for f in rows if f["status"] == "not_reviewed"]
+    if skipped:
+        lines += [f"Not reviewed by the agent, so check by hand: {', '.join(skipped)}.", ""]
     lines += ["| Topic | Clause | Status | Risk |", "|---|---|---|---|"]
     for f in rows:
         lines.append(f"| {f['topic'].replace('_', ' ')} | {f['clause']} | {f['status']} | {f['risk']} |")
@@ -299,19 +320,22 @@ def main():
     parser.add_argument("--playbook", default=HERE / "data" / "playbook.json", type=Path)
     parser.add_argument("--out", default=Path("output") / "contract-review", type=Path)
     parser.add_argument("--model", default=os.environ.get("CONTINUUM_MODEL", DEFAULT_MODEL))
+    parser.add_argument("--demo", action="store_true", help="Run a scripted demonstration. No API key needed.")
     args = parser.parse_args()
 
+    client = demo_client("contract_review_client") if args.demo else make_client()
     review, usage = review_contract(
-        make_client(), args.model, args.contract.read_text(), json.loads(args.playbook.read_text())
+        client, args.model, args.contract.read_text(), json.loads(args.playbook.read_text())
     )
     args.out.mkdir(parents=True, exist_ok=True)
     report = report_markdown(review)
-    (args.out / "report.md").write_text(report)
+    (args.out / "report.md").write_text((DEMO_NOTE if args.demo else "") + report)
     (args.out / "report.json").write_text(
-        json.dumps({"summary": review.summary, "findings": list(review.findings.values()), "usage": usage}, indent=2)
+        json.dumps({"summary": review.summary, "findings": list(review.findings.values()), "usage": None if args.demo else usage}, indent=2)
     )
     print(report)
-    print(f"\nTokens used: {usage['prompt_tokens']:,} sent, {usage['completion_tokens']:,} received.")
+    if not args.demo:
+        print(f"\nTokens used: {usage['prompt_tokens']:,} sent, {usage['completion_tokens']:,} received.")
     print(f"Saved to {args.out}/")
 
 

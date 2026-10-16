@@ -37,13 +37,23 @@ question ──► agent ──► search_documents ──► read_document ─�
 
 Search uses BM25, a standard keyword ranking, written in about 30 lines with no extra libraries. It works well for a few hundred documents. For thousands, swap `Library.search` for embedding search: the rest of the recipe stays the same.
 
+## Try it now
+
+No key needed. Demo mode replays a scripted model run through this recipe's real code.
+
+```bash
+uv run agents/research-analyst/recipe.py --demo
+```
+
+Or read the [example output](example-output/answer.md).
+
 ## Run it
 
 ```bash
 export CONTINUUM_API_KEY=your-key
-python agents/research-analyst/recipe.py
-python agents/research-analyst/recipe.py --question "Why was Chatwell rejected?"
-python agents/research-analyst/recipe.py --docs path/to/your/markdown/folder
+uv run agents/research-analyst/recipe.py
+uv run agents/research-analyst/recipe.py --question "Why was Chatwell rejected?"
+uv run agents/research-analyst/recipe.py --docs path/to/your/markdown/folder
 ```
 
 ## Make it yours

@@ -1,72 +1,82 @@
 # Continuum Labs Cookbook
 
-Working recipes for building with open AI models on [Continuum Labs](https://continuumlabs.ai): world-class AI, run entirely in Australia.
+[![Recipes](https://github.com/continuumlabs-ai/cookbook/actions/workflows/ci.yml/badge.svg)](https://github.com/continuumlabs-ai/cookbook/actions/workflows/ci.yml)
+[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/continuumlabs-ai/cookbook?quickstart=1)
+[![MIT licence](https://img.shields.io/badge/licence-MIT-652c90.svg)](LICENSE)
 
-Each recipe solves a real business task end to end. Copy it, run it, adapt it.
+Working AI agents for real business tasks. Copy one, run it, make it yours.
 
-Every recipe works with the OpenAI Python SDK. Point it at Continuum and your data is processed in Australian data centres. Point it at any other OpenAI-compatible endpoint and it works there too.
+Built for [Continuum Labs](https://continuumlabs.ai): world-class AI, run entirely in Australia. Every recipe also works with any OpenAI-compatible endpoint.
 
-## Quick start
+## See one work in 60 seconds
+
+No sign-up and no API key. Demo mode replays a scripted model run through the recipe's real code.
+
+**In your browser.** Click **Open in GitHub Codespaces** above. When it opens, run:
 
 ```bash
-git clone https://github.com/continuumlabs-ai/cookbook.git
-cd cookbook
-pip install -r requirements.txt
-cp .env.example .env        # then add your key
-python agents/contract-review/recipe.py
+python agents/contract-review/recipe.py --demo
 ```
 
-Settings are read from the environment:
+**On your computer**, with [uv](https://docs.astral.sh/uv/) installed:
 
-| Variable | Default | Meaning |
+```bash
+git clone https://github.com/continuumlabs-ai/cookbook.git && cd cookbook
+uv run agents/contract-review/recipe.py --demo
+```
+
+`uv run` installs what each recipe needs automatically. Without uv, run `pip install -r requirements.txt` first and use `python` instead.
+
+**Or just read the result.** Every recipe has an `example-output` folder.
+
+## Run it for real
+
+```bash
+export CONTINUUM_API_KEY=your-key
+uv run agents/contract-review/recipe.py
+```
+
+| Setting | Default | What it does |
 |---|---|---|
 | `CONTINUUM_API_KEY` | none | Your API key |
 | `CONTINUUM_BASE_URL` | `https://api.continuumlabs.ai/v1` | Any OpenAI-compatible endpoint |
-| `CONTINUUM_MODEL` | `glm-5.2` | Any model on the endpoint that supports tool calling |
+| `CONTINUUM_MODEL` | `glm-5.2` | Any model on that endpoint that supports tool calling |
 
 ## Recipes
 
-### Agents
+| Recipe | What it does | Example output |
+|---|---|---|
+| [Contract review agent](agents/contract-review/) | Checks every clause of a contract against your policy playbook and drafts replacement wording | [Report](agents/contract-review/example-output/report.md) |
+| [Research analyst agent](agents/research-analyst/) | Answers a question from your own documents with citations, then proves every quote is real | [Answer](agents/research-analyst/example-output/answer.md) |
+| [Announcement monitor](batch/announcement-monitor/) | Reads overnight company announcements and writes a morning digest that leads with what matters | [Digest](batch/announcement-monitor/example-output/digest.md) |
 
-| Recipe | What it does | Shows | Status |
-|---|---|---|---|
-| [Contract review agent](agents/contract-review/) | Checks every clause of a contract against your policy playbook and drafts redlines | Tool calling, agent loop, coverage checks | Ready |
-| [Research analyst agent](agents/research-analyst/) | Searches your own documents, answers with citations, then verifies every quote | Retrieval, citations, self-verification | Ready |
-| Policy compliance checker | Tests procedures against a regulation, clause by clause | Structured output, long documents | Planned |
-| Email triage agent | Sorts customer email, routes it and drafts replies | Classification, tool calling | Planned |
-| Coding assistant, onshore | Connects open-source coding agents to an Australian endpoint | Integrations | Planned |
+### Coming next
 
-### Batch and extraction
+Financial statements to spreadsheet. Meeting recording to minutes. Policy compliance checker. Email triage agent. Private document search. Guides for LangGraph, LlamaIndex, the OpenAI Agents SDK and the Vercel AI SDK.
 
-| Recipe | What it does | Shows | Status |
-|---|---|---|---|
-| [Announcement monitor](batch/announcement-monitor/) | Reads a folder of company announcements overnight and writes a morning digest of what matters | Structured output, validation, concurrency, batch files | Ready |
-| Financial statements to spreadsheet | Extracts tables from annual reports into clean data | Structured output | Planned |
-| Meeting to minutes | Transcribes a recording, writes minutes and lists actions | Speech to text, summarisation | Planned |
-| Private document search | Question and answer over internal files, embeddings kept onshore | Embeddings, retrieval | Planned |
+## Why these recipes can be trusted
 
-### Works with
+Most AI examples show the happy path. These show what happens when the model gets it wrong.
 
-Short guides for connecting popular agent frameworks are planned: LangGraph, LlamaIndex, the OpenAI Agents SDK and the Vercel AI SDK.
+- **The code checks the model.** Findings must cite real clauses. Quotes must appear word for word in their source. Figures must appear in the announcement. When a check fails, the model is told why and asked to fix it.
+- **Every report says what the checks caught.** You see the rejected quote, the removed figure, the corrected reply.
+- **Nothing is skipped silently.** If an agent misses part of the job, the report says so.
+- **One readable file.** Each `recipe.py` holds the whole solution. No framework to learn.
+- **Tested.** Eleven tests run every recipe end to end on each change, without a key or network.
 
-## How every recipe is built
+## Adapt a recipe with your coding assistant
 
-- **One file you can read top to bottom.** `recipe.py` holds the whole solution. No hidden framework.
-- **Sample data included.** Every company, person and document in `data/` is fictional.
-- **Checks the model's work.** Each recipe verifies the output in plain code, not just by asking the model again.
-- **Tested.** `tests/` drives every recipe end to end with a stand-in model, so the logic is proven without spending tokens.
+Open the repository in Claude Code, Cursor, Copilot or any assistant that reads `AGENTS.md`, and ask in plain English:
 
-## Run the tests
+> Adapt the contract review recipe to our supplier playbook in playbook.docx.
 
-```bash
-python -m unittest discover -s tests -v
-```
+> Change the announcement monitor to put our portfolio holdings first.
 
-No API key or network is needed. The tests use a scripted stand-in for the model.
+`AGENTS.md` tells the assistant how the recipes are built and which rules to keep.
 
 ## Contributing
 
-See [CONTRIBUTING.md](CONTRIBUTING.md).
+See [CONTRIBUTING.md](CONTRIBUTING.md). Every company, person and document in the sample data is fictional.
 
 ## Licence
 

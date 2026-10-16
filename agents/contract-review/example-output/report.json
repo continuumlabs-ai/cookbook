@@ -1,0 +1,70 @@
+{
+  "summary": "The contract does not meet our policies as drafted. Seven of eight topics need changes, and three are high risk: offshore data, a three-month liability cap and the Supplier owning our deliverables. Do not sign until clauses 5, 6 and 7 are amended.",
+  "findings": [
+    {
+      "topic": "liability",
+      "clause": "7",
+      "status": "exception",
+      "risk": "high",
+      "explanation": "Clause 7 caps the Supplier's liability at 3 months of fees and leaves the Customer's liability uncapped. Policy requires a cap of at least 12 months of fees and no uncapped liability for us.",
+      "suggested_redline": "Each party's total liability under this agreement is limited to the fees paid or payable in the 12 months before the claim."
+    },
+    {
+      "topic": "data_location",
+      "clause": "5",
+      "status": "exception",
+      "risk": "high",
+      "explanation": "Data may be processed in Singapore or the United States, and backups are held in the United States. Policy requires all data and backups to stay in Australia.",
+      "suggested_redline": "The Supplier will store and process all Customer data, including backups, only in Australia."
+    },
+    {
+      "topic": "intellectual_property",
+      "clause": "6",
+      "status": "exception",
+      "risk": "high",
+      "explanation": "The Supplier keeps ownership of all deliverables and grants us only a licence for the term. Policy requires us to own deliverables created for us.",
+      "suggested_redline": "The Customer owns all intellectual property in deliverables created specifically for it. The Supplier keeps its pre-existing tools and grants the Customer a perpetual licence to use them within the deliverables."
+    },
+    {
+      "topic": "termination_for_convenience",
+      "clause": "4",
+      "status": "exception",
+      "risk": "medium",
+      "explanation": "We can terminate for convenience only on 180 days' notice. Policy allows at most 90 days.",
+      "suggested_redline": "The Customer may terminate this agreement for convenience on 90 days' written notice."
+    },
+    {
+      "topic": "auto_renewal",
+      "clause": "3",
+      "status": "exception",
+      "risk": "medium",
+      "explanation": "The agreement renews for 12-month terms unless notice is given 30 days before the end, and the Supplier has no duty to remind us. Policy requires a reminder at least 60 days before renewal.",
+      "suggested_redline": "The Supplier must notify the Customer in writing at least 60 days before any renewal date. Without that notice, the agreement does not renew."
+    },
+    {
+      "topic": "governing_law",
+      "clause": "9",
+      "status": "exception",
+      "risk": "medium",
+      "explanation": "The agreement is governed by Singapore law. Policy requires Victoria or New South Wales.",
+      "suggested_redline": "This agreement is governed by the laws of Victoria, Australia."
+    },
+    {
+      "topic": "payment_terms",
+      "clause": "2",
+      "status": "exception",
+      "risk": "low",
+      "explanation": "Invoices are due within 14 days, and late payments attract 2% interest a month. Policy is 30 days. Shorter terms need Finance approval.",
+      "suggested_redline": "The Customer will pay each undisputed invoice within 30 days of receiving it."
+    },
+    {
+      "topic": "confidentiality",
+      "clause": "8",
+      "status": "compliant",
+      "risk": "low",
+      "explanation": "Confidentiality lasts for 5 years after the agreement ends, beyond the 3-year minimum.",
+      "suggested_redline": ""
+    }
+  ],
+  "usage": null
+}

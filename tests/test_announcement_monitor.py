@@ -5,8 +5,8 @@ import tempfile
 import unittest
 from pathlib import Path
 
-sys.path.insert(0, str(Path(__file__).parent))
-from fake_model import FakeClient, reply  # noqa: E402
+sys.path.insert(0, str(Path(__file__).parent.parent))
+from demo.fake_model import FakeClient, reply  # noqa: E402
 
 ROOT = Path(__file__).parent.parent
 RECIPE = ROOT / "batch" / "announcement-monitor"

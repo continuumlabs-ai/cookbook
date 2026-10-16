@@ -41,12 +41,22 @@ The checks are what make this safe to rely on.
 2. **Every key figure is checked against the source.** A figure that does not appear in the announcement, word for word, is dropped and recorded. The digest never shows a number the company did not publish.
 3. **No silent failures.** If a reply still fails after one correction, the announcement goes to "Needs review" rather than disappearing.
 
+## Try it now
+
+No key needed. Demo mode replays a scripted model run through this recipe's real code.
+
+```bash
+uv run batch/announcement-monitor/recipe.py --demo
+```
+
+Or read the [example output](example-output/digest.md).
+
 ## Run it
 
 ```bash
 export CONTINUUM_API_KEY=your-key
-python batch/announcement-monitor/recipe.py
-python batch/announcement-monitor/recipe.py --folder path/to/announcements --workers 16
+uv run batch/announcement-monitor/recipe.py
+uv run batch/announcement-monitor/recipe.py --folder path/to/announcements --workers 16
 ```
 
 ### Half-price overnight runs
@@ -54,7 +64,7 @@ python batch/announcement-monitor/recipe.py --folder path/to/announcements --wor
 Work that can wait until morning does not need instant answers. Write the requests as a batch file instead:
 
 ```bash
-python batch/announcement-monitor/recipe.py --prepare-batch tonight.jsonl
+uv run batch/announcement-monitor/recipe.py --prepare-batch tonight.jsonl
 ```
 
 The file uses the standard OpenAI-compatible batch format. On Continuum, batch processing will run at half the normal price from launch.

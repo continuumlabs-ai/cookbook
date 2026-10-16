@@ -1,4 +1,8 @@
 #!/usr/bin/env python3
+# /// script
+# requires-python = ">=3.10"
+# dependencies = ["openai>=1.40"]
+# ///
 """Announcement monitor.
 
 Reads a folder of company announcements and writes a morning digest that leads
@@ -25,6 +29,7 @@ from pathlib import Path
 HERE = Path(__file__).parent
 DEFAULT_BASE_URL = "https://api.continuumlabs.ai/v1"
 DEFAULT_MODEL = "glm-5.2"
+DEMO_NOTE = "> Demonstration output. The model's replies were scripted. Run without --demo for a live result.\n\n"
 
 CATEGORIES = [
     "results",
@@ -49,6 +54,15 @@ def make_client():
     except ImportError:
         sys.exit("Install the requirements first: pip install -r requirements.txt")
     return OpenAI(base_url=os.environ.get("CONTINUUM_BASE_URL", DEFAULT_BASE_URL), api_key=key)
+
+
+def demo_client(name):
+    """Load a scripted model run from the repository's demo folder."""
+    sys.path.insert(0, str(HERE.parents[1]))
+    from demo import scripts
+
+    print(scripts.BANNER)
+    return getattr(scripts, name)()
 
 
 # ---------------------------------------------------------------------------
@@ -133,6 +147,7 @@ def classify(client, model, path):
             parsed, problems = check(parsed, text)
         if parsed:
             parsed["source"] = path.name
+            parsed["corrected"] = attempt > 0
             return parsed
         # Send the problems back once, so the model can correct itself.
         body = request_body(model, text, [
@@ -196,6 +211,12 @@ def digest_markdown(results, day=None):
     if review:
         lines += ["## Needs review", ""]
         lines += [f"- {r['source']}: {'; '.join(r['problems'])}" for r in review]
+        lines.append("")
+    checks = [f"- {r['company']}: removed {', '.join(r['dropped_figures'])}, not found in the announcement."
+              for r in good if r.get("dropped_figures")]
+    checks += [f"- {r['company']}: first reply broke the format and was corrected." for r in good if r.get("corrected")]
+    if checks:
+        lines += ["## What the checks caught", ""] + checks
     return "\n".join(lines)
 
 
@@ -206,6 +227,7 @@ def main():
     parser.add_argument("--model", default=os.environ.get("CONTINUUM_MODEL", DEFAULT_MODEL))
     parser.add_argument("--workers", default=8, type=int, help="How many announcements to read at once.")
     parser.add_argument("--prepare-batch", type=Path, help="Write a batch file instead of calling the model now.")
+    parser.add_argument("--demo", action="store_true", help="Run a scripted demonstration. No API key needed.")
     args = parser.parse_args()
 
     if args.prepare_batch:
@@ -213,10 +235,11 @@ def main():
         print(f"Batch file written to {args.prepare_batch}. Submit it through the batch endpoint.")
         return
 
-    results = classify_folder(make_client(), args.model, args.folder, args.workers)
+    client = demo_client("announcement_monitor_client") if args.demo else make_client()
+    results = classify_folder(client, args.model, args.folder, args.workers)
     digest = digest_markdown(results)
     args.out.mkdir(parents=True, exist_ok=True)
-    (args.out / "digest.md").write_text(digest)
+    (args.out / "digest.md").write_text((DEMO_NOTE if args.demo else "") + digest)
     (args.out / "classifications.json").write_text(json.dumps(results, indent=2))
     print(digest)
     print(f"\nSaved to {args.out}/")

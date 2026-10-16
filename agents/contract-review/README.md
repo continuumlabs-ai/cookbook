@@ -40,17 +40,27 @@ Three design choices make it dependable.
 2. **Findings are validated in code.** A finding with an unknown topic, a made-up clause number or an invalid status is rejected, and the error goes back to the model to correct.
 3. **Nothing is silently skipped.** The agent cannot finish until every topic has a finding. If it stops early anyway, the code flags the missing topics as "not reviewed" for a person to check.
 
+## Try it now
+
+No key needed. Demo mode replays a scripted model run through this recipe's real code.
+
+```bash
+uv run agents/contract-review/recipe.py --demo
+```
+
+Or read the [example output](example-output/report.md).
+
 ## Run it
 
 ```bash
 export CONTINUUM_API_KEY=your-key
-python agents/contract-review/recipe.py
+uv run agents/contract-review/recipe.py
 ```
 
 Use your own documents:
 
 ```bash
-python agents/contract-review/recipe.py --contract my-contract.md --playbook my-playbook.json
+uv run agents/contract-review/recipe.py --contract my-contract.md --playbook my-playbook.json
 ```
 
 The contract needs clause headings in the form `## 7. Liability`. Convert a Word or PDF contract to Markdown first.
