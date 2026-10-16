@@ -35,6 +35,10 @@ sys.path.insert(0, str(ROOT))
 ANSWERS = json.loads((Path(__file__).parent / "answers.json").read_text())
 
 
+def count(n, word):
+    return f"{n} {word}" if n == 1 else f"{n} {word}s"
+
+
 def load(path):
     spec = importlib.util.spec_from_file_location(path.replace("/", "_").replace("-", "_"), ROOT / path / "recipe.py")
     module = importlib.util.module_from_spec(spec)
@@ -80,7 +84,7 @@ def contract_review(client, model):
         if found.get("status") != right["status"]:
             notes.append(f"{topic}: said {found.get('status', 'nothing')}")
     if review.rejected:
-        notes.append(f"code sent back {review.rejected} findings")
+        notes.append(f"code sent back {count(review.rejected, 'finding')}")
     return points, 2 * len(ANSWERS["contract_review"]), notes
 
 
@@ -94,7 +98,7 @@ def research_analyst(client, model):
     points += sum(figure in answer for figure in right["must_mention"])
     notes = [] if session.answer else ["no answer passed the citation checks"]
     if session.rejections:
-        notes.append(f"code sent back {len(session.rejections)} drafts")
+        notes.append(f"code sent back {count(len(session.rejections), 'draft')}")
     return points, 2 + len(right["must_mention"]), notes
 
 
@@ -112,7 +116,7 @@ def announcement_monitor(client, model):
                 notes.append(f"{company.split()[0]} {field}: {got.get(field, 'missing')}")
     dropped = sum(len(r.get("dropped_figures", [])) for r in results)
     if dropped:
-        notes.append(f"code removed {dropped} figures not in the source")
+        notes.append(f"code removed {count(dropped, 'figure')} not in the source")
     return points, 3 * len(ANSWERS["announcement_monitor"]), notes
 
 
@@ -134,7 +138,7 @@ def bookkeeper_invoices(client, model):
             points += recipe.checks.money(total) == Decimal(right["total"]) if total else 0
     corrected = sum(1 for r in results if r.get("corrected"))
     if corrected:
-        notes.append(f"code sent back {corrected} misread invoices")
+        notes.append(f"code sent back {count(corrected, 'misread invoice')}")
     return points, out_of, notes
 
 
@@ -152,7 +156,7 @@ def aged_care_incidents(client, model):
             notes.append(f"{name[:2]}: said {model_priority or 'nothing'}, rules say {right['priority']}")
     escalated = sum(1 for r in results if r.get("escalated"))
     if escalated:
-        notes.append(f"code raised {escalated} priorities")
+        notes.append(f"code raised {count(escalated, 'priority').replace('prioritys', 'priorities')}")
     return points, 2 * len(ANSWERS["aged_care_incidents"]), notes
 
 

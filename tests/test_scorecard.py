@@ -48,7 +48,7 @@ class ScorecardTest(unittest.TestCase):
             self.assertGreater(task["points"], 0, name)
         # The scripted aged care model calls J.P. Priority 2. The scorecard marks the model, not the code's fix.
         self.assertLess(row["tasks"]["Aged care incidents"]["points"], 12)
-        self.assertIn("code raised 1 priorities", row["tasks"]["Aged care incidents"]["notes"])
+        self.assertIn("code raised 1 priority", row["tasks"]["Aged care incidents"]["notes"])
         table = scorecard.markdown([row], "https://example.test/v1")
         self.assertIn("| `scripted-model` |", table)
         self.assertIn("answers.json", table)
