@@ -9,7 +9,7 @@ Every recipe works with the OpenAI Python SDK. Point it at Continuum and your da
 ## Quick start
 
 ```bash
-git clone https://github.com/continuum-labs/cookbook.git
+git clone https://github.com/continuumlabs-ai/cookbook.git
 cd cookbook
 pip install -r requirements.txt
 cp .env.example .env        # then add your key
