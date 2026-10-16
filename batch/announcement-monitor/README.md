@@ -59,7 +59,7 @@ uv run batch/announcement-monitor/recipe.py
 uv run batch/announcement-monitor/recipe.py --folder path/to/announcements --workers 16
 ```
 
-### Half-price overnight runs
+### Overnight batch runs
 
 Work that can wait until morning does not need instant answers. Write the requests as a batch file instead:
 
@@ -67,7 +67,7 @@ Work that can wait until morning does not need instant answers. Write the reques
 uv run batch/announcement-monitor/recipe.py --prepare-batch tonight.jsonl
 ```
 
-The file uses the standard OpenAI-compatible batch format. On Continuum, batch processing will run at half the normal price from launch.
+The file uses the standard OpenAI-compatible batch format, which many providers process at a discount. Continuum does not offer a batch endpoint yet. Until it does, run the recipe on a schedule instead.
 
 ## Make it yours
 

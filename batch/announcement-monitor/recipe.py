@@ -11,7 +11,7 @@ plain code checks the result: allowed categories only, required fields present,
 and every key figure copied exactly from the source. Bad results are retried
 once, then flagged for a person.
 
-Run overnight on a schedule, or prepare a batch file for half-price processing.
+Run overnight on a schedule, or prepare a batch file for endpoints that offer batch processing.
 
 Run:  python batch/announcement-monitor/recipe.py
       python batch/announcement-monitor/recipe.py --prepare-batch batch.jsonl
@@ -164,7 +164,7 @@ def classify_folder(client, model, folder, workers=8):
 
 
 # ---------------------------------------------------------------------------
-# Batch file: the same requests, written for half-price overnight processing
+# Batch file: the same requests, written for overnight batch processing
 # ---------------------------------------------------------------------------
 
 def write_batch_file(model, folder, out_path):
