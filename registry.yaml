@@ -1,0 +1,24 @@
+# Index of recipes. The website's cookbook page is generated from this file.
+- title: Contract review agent
+  path: agents/contract-review
+  summary: Checks every clause of a contract against your policy playbook and drafts redlines.
+  category: agents
+  shows: [tool calling, agent loop, coverage checks]
+  industries: [legal, financial services, procurement]
+  status: ready
+
+- title: Research analyst agent
+  path: agents/research-analyst
+  summary: Searches your own documents, answers with citations, then verifies every quote.
+  category: agents
+  shows: [retrieval, citations, self-verification]
+  industries: [financial services, government, research]
+  status: ready
+
+- title: Announcement monitor
+  path: batch/announcement-monitor
+  summary: Reads a folder of company announcements overnight and writes a morning digest of what matters.
+  category: batch
+  shows: [structured output, validation, concurrency, batch files]
+  industries: [funds management, wealth, research]
+  status: ready

@@ -1,0 +1,37 @@
+{
+  "organisation": "Harbourline Logistics Pty Ltd (fictional)",
+  "policies": {
+    "liability": {
+      "rule": "Supplier liability must be capped at no less than 12 months of fees. Uncapped liability for the customer is not acceptable.",
+      "risk_if_breached": "high"
+    },
+    "data_location": {
+      "rule": "All customer data, including backups, must be stored and processed in Australia. Any offshore processing needs written approval from our Chief Risk Officer.",
+      "risk_if_breached": "high"
+    },
+    "payment_terms": {
+      "rule": "We pay invoices within 30 days of receipt. Longer terms are fine. Shorter terms need Finance approval.",
+      "risk_if_breached": "low"
+    },
+    "termination_for_convenience": {
+      "rule": "We must be able to terminate for convenience on no more than 90 days' notice.",
+      "risk_if_breached": "medium"
+    },
+    "auto_renewal": {
+      "rule": "Automatic renewal is acceptable only if the supplier must remind us at least 60 days before the renewal date.",
+      "risk_if_breached": "medium"
+    },
+    "governing_law": {
+      "rule": "The contract must be governed by the laws of Victoria or New South Wales.",
+      "risk_if_breached": "medium"
+    },
+    "intellectual_property": {
+      "rule": "We must own all deliverables created specifically for us. The supplier keeps its pre-existing tools.",
+      "risk_if_breached": "high"
+    },
+    "confidentiality": {
+      "rule": "Confidentiality obligations must survive termination for at least three years.",
+      "risk_if_breached": "medium"
+    }
+  }
+}
