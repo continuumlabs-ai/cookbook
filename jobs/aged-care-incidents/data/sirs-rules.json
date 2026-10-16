@@ -1,0 +1,35 @@
+{
+  "scheme": "Serious Incident Response Scheme (SIRS)",
+  "regulator": "Aged Care Quality and Safety Commission",
+  "source": "https://www.agedcarequality.gov.au/providers/serious-incident-response-scheme/reportable-incidents/about-reportable-incidents",
+  "checked": "2026-10-16",
+  "warning": "The Commission is updating its guidance for the Aged Care Act 2024, which applies from 1 November 2025. Check these rules against the Commission's current guidance before relying on them.",
+  "categories": {
+    "unreasonable_use_of_force": "Unreasonable use of force against a person receiving care, such as hitting, pushing or rough handling.",
+    "unlawful_sexual_contact_or_inappropriate_sexual_conduct": "Unlawful sexual contact with, or inappropriate sexual conduct towards, a person receiving care.",
+    "psychological_or_emotional_abuse": "Conduct that causes psychological or emotional distress, such as threats, intimidation or humiliation.",
+    "unexpected_death": "A death where reasonable steps were not taken to prevent it, or that resulted from care given or not given.",
+    "stealing_or_financial_coercion_by_staff": "Stealing from, or financial coercion of, a person receiving care by a staff member.",
+    "neglect": "A failure to provide the care and supports a person needs, such as nutrition, hygiene or medication.",
+    "inappropriate_use_of_restrictive_practices": "A restrictive practice used without meeting the legal requirements, such as assessment, consent and documentation.",
+    "unexplained_absence": "The person is absent from the service without explanation and without staff knowing."
+  },
+  "priority_1": {
+    "description": "Report to the Commission within 24 hours of becoming aware.",
+    "hours": 24,
+    "always_priority_1": ["unlawful_sexual_contact_or_inappropriate_sexual_conduct", "unexpected_death"],
+    "priority_1_when": [
+      "the incident caused, or could reasonably have caused, physical or psychological injury or discomfort that needs medical or psychological treatment",
+      "there are reasonable grounds to report it to police",
+      "it is an unexplained absence that has been reported to police"
+    ]
+  },
+  "priority_2": {
+    "description": "Report to the Commission within 30 days of becoming aware. Every reportable incident that is not Priority 1.",
+    "days": 30
+  },
+  "police": {
+    "description": "If an incident may involve a crime, notify police within 24 hours of becoming aware.",
+    "hours": 24
+  }
+}

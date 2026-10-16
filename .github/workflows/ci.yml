@@ -41,6 +41,8 @@ jobs:
       - run: python agents/contract-review/recipe.py --out output/contract 2>&1 | tee output/contract-console.txt
       - run: python agents/research-analyst/recipe.py --out output/research 2>&1 | tee output/research-console.txt
       - run: python batch/announcement-monitor/recipe.py --out output/monitor 2>&1 | tee output/monitor-console.txt
+      - run: python jobs/bookkeeper-invoices/recipe.py --out output/bookkeeper 2>&1 | tee output/bookkeeper-console.txt
+      - run: python jobs/aged-care-incidents/recipe.py --out output/aged-care 2>&1 | tee output/aged-care-console.txt
       - uses: actions/upload-artifact@v4
         if: always()
         with:

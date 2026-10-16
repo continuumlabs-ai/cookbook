@@ -5,6 +5,7 @@
   category: agents
   shows: [tool calling, agent loop, coverage checks]
   industries: [legal, financial services, procurement]
+  playground: cps230
   status: ready
 
 - title: Research analyst agent
@@ -21,4 +22,25 @@
   category: batch
   shows: [structured output, validation, concurrency, batch files]
   industries: [funds management, wealth, research]
+  playground: asx
+  status: ready
+
+- title: "Bookkeeper: supplier invoices to Xero"
+  path: jobs/bookkeeper-invoices
+  summary: Turns a folder of supplier invoices into a Xero import file and flags what to query before paying.
+  category: jobs
+  job: bookkeeper
+  shows: [structured output, Australian checks, TFN redaction, duplicate detection]
+  industries: [accounting, small business, property]
+  playground: invoice
+  status: ready
+
+- title: "Aged care: serious incident triage"
+  path: jobs/aged-care-incidents
+  summary: Works out which incident reports must be reported under SIRS, at what priority, and by when.
+  category: jobs
+  job: clinical care manager
+  shows: [structured output, rules in code, deadlines, evidence checks]
+  industries: [aged care, health]
+  playground: sirs
   status: ready

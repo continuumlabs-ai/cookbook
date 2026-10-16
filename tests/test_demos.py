@@ -11,6 +11,8 @@ RECIPES = {
     "agents/contract-review": "report.md",
     "agents/research-analyst": "answer.md",
     "batch/announcement-monitor": "digest.md",
+    "jobs/bookkeeper-invoices": "report.md",
+    "jobs/aged-care-incidents": "triage.md",
 }
 
 

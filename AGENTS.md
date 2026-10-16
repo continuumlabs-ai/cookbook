@@ -13,6 +13,7 @@ A cookbook of working AI recipes. Each recipe solves one business task with an O
 <category>/<recipe>/README.md          what it does and how to change it
 <category>/<recipe>/data/              fictional sample inputs
 <category>/<recipe>/example-output/    output from a demo run
+au/checks.py                           Australian checks: ABN, TFN, GST, postcodes, dates
 demo/scripts.py                        scripted model replies for --demo
 demo/fake_model.py                     stand-in client used by demos and tests
 tests/                                 offline tests, no network or key needed
@@ -32,6 +33,7 @@ Settings come from `CONTINUUM_API_KEY`, `CONTINUUM_BASE_URL` and `CONTINUUM_MODE
 ## When adapting a recipe for a user
 
 - Keep the solution in one `recipe.py`. Do not split it into modules.
+- Use `au/checks.py` for anything Australian: ABNs, GST, tax file numbers, postcodes, dates. Redact tax file numbers before text reaches a model.
 - Keep the checks in plain code. They are the point of each recipe: findings validated against the playbook, quotes checked against sources, figures checked against announcements. Do not replace a code check with a model check.
 - Change the input data and prompts first. Change the tools second. Change the agent loop last.
 - If you add a tool, validate its arguments and return errors as text so the model can correct itself.

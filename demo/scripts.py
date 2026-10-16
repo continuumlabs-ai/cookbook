@@ -191,3 +191,127 @@ def announcement_monitor_client():
         return reply(content=json.dumps(ANNOUNCEMENTS[key]))
 
     return FakeClient(respond)
+
+
+# ---------------------------------------------------------------------------
+# Bookkeeper: supplier invoices
+# ---------------------------------------------------------------------------
+
+def _line(description, quantity, unit_price, amount, gst_free=False):
+    return {"description": description, "quantity": quantity, "unit_price": unit_price,
+            "amount": amount, "gst_free": gst_free}
+
+
+IRONBARK_INVOICE = {
+    "supplier_name": "Ironbark Plumbing Pty Ltd", "supplier_abn": "90 551 661 605", "gst_registered": True,
+    "invoice_number": "INV-20417", "invoice_date": "03/10/2026", "due_date": "17/10/2026",
+    "lines": [_line("Replace hot water unit, 315L electric", "1", "$1,890.00", "$1,890.00"),
+              _line("Labour, licensed plumber", "3.5", "$128.00", "$448.00"),
+              _line("Tempering valve", "1", "$164.00", "$164.00"),
+              _line("Call-out fee", "1", "$95.00", "$95.00")],
+    "subtotal_ex_gst": "$2,597.00", "gst": "$259.70", "total_inc_gst": "$2,856.70",
+}
+
+INVOICE_READINGS = {
+    "Ironbark": IRONBARK_INVOICE,
+    "Gumleaf": {
+        "supplier_name": "Gumleaf Office Supplies", "supplier_abn": "87 192 327 523", "gst_registered": True,
+        "invoice_number": "77812", "invoice_date": "6 October 2026", "due_date": None,
+        "lines": [_line("A4 copy paper, 10 reams", "10", "$6.50", "$65.00"),
+                  _line("Toner cartridge HL-2350", "2", "$89.00", "$178.00"),
+                  _line("Milk and tea for kitchen", "1", "$18.40", "$18.40", gst_free=True)],
+        "subtotal_ex_gst": "$261.40", "gst": "$24.30", "total_inc_gst": "$285.70",
+    },
+    "COASTAL": {
+        "supplier_name": "Coastal Courier Co.", "supplier_abn": "28 322 761 078", "gst_registered": True,
+        "invoice_number": "C-3391", "invoice_date": "07/10/2026", "due_date": None,
+        "lines": [_line("Same-day delivery Melbourne to Geelong", "3", "$42.00", "$126.00"),
+                  _line("Fuel levy 10%", "1", "$12.60", "$12.60")],
+        "subtotal_ex_gst": "$138.60", "gst": "$13.86", "total_inc_gst": "$152.46",
+    },
+    "Wattle": {
+        "supplier_name": "Wattle Electrical Services", "supplier_abn": "50 893 268 002", "gst_registered": True,
+        "invoice_number": "WE-1188", "invoice_date": "08/10/2026", "due_date": "22/10/2026",
+        "lines": [_line("Switchboard upgrade, 12-way, including RCDs and compliance certificate",
+                        "1", "$1,250.00", "$1,250.00")],
+        "subtotal_ex_gst": "$1,250.00", "gst": "$132.00", "total_inc_gst": "$1,382.00",
+    },
+    "Kookaburra": {
+        "supplier_name": "Kookaburra Cleaning (Jess Moran)", "supplier_abn": None, "gst_registered": False,
+        "invoice_number": "0042", "invoice_date": "09/10/2026", "due_date": None,
+        "lines": [_line("Office clean, 4 visits", "4", "$85.00", "$340.00")],
+        "subtotal_ex_gst": "$340.00", "gst": "$0.00", "total_inc_gst": "$340.00",
+    },
+}
+
+
+def bookkeeper_client():
+    """Reads each invoice. Misreads the Gumleaf total the first time, so the figure check sends it back."""
+    seen = {}
+
+    def respond(request):
+        text = request["messages"][1]["content"]
+        key = next(k for k in INVOICE_READINGS if k in text)
+        seen[key] = seen.get(key, 0) + 1
+        reading = INVOICE_READINGS[key]
+        if key == "Gumleaf" and seen[key] == 1:
+            reading = {**reading, "total_inc_gst": "$285.07"}  # digits swapped
+        return reply(content=json.dumps(reading))
+
+    return FakeClient(respond)
+
+
+# ---------------------------------------------------------------------------
+# Aged care: serious incident triage
+# ---------------------------------------------------------------------------
+
+def _incident(resident, category, priority, aware, evidence, summary, injury=False, police=False, reported=False):
+    return {"resident": resident, "reportable": category != "not_reportable", "category": category,
+            "priority": priority, "injury_needing_treatment": injury, "police_grounds": police,
+            "reported_to_police": reported, "became_aware": aware, "evidence": evidence, "summary": summary}
+
+
+INCIDENT_READINGS = {
+    "IR-2611": _incident("E.W.", "not_reportable", "none", "14/10/2026 07:20",
+                         "GP reviewed at 11:00 and found no injury.",
+                         "Supervised fall in the bathroom while walking with a frame. No injury. Care plan followed."),
+    "IR-2614": _incident("R.T.", "unexplained_absence", "P1", "14/10/2026 15:05",
+                         "Staff called police at 15:30 and reported R.T. missing.",
+                         "Resident left the secure memory support unit through a gate propped open by a contractor. "
+                         "Reported to police and found unhurt at a bus stop two hours later.",
+                         reported=True),
+    "IR-2615": _incident("M.K.", "unreasonable_use_of_force", "P1", "15/10/2026 06:45",
+                         "he grabbed me hard last night when I didn't want to get up",
+                         "New bruising on both forearms after an overnight transfer. Resident says a care worker "
+                         "grabbed her hard. GP prescribed pain relief and dressings. Worker stood down.",
+                         injury=True, police=True),
+    "IR-2617": _incident("J.P.", "stealing_or_financial_coercion_by_staff", "P2", "15/10/2026 11:30",
+                         "The safe access log shows one staff member opened it on each of the four days.",
+                         "Four unexplained cash withdrawals totalling $240 from the resident's bank card, kept in "
+                         "the facility safe. One staff member accessed the safe each day. Staff member stood down.",
+                         police=True),  # says P2, but police grounds make it P1. The code must raise it.
+    "IR-2618": _incident("D.L.", "inappropriate_use_of_restrictive_practices", "P2", "15/10/2026 08:10",
+                         "D.L. has no assessment, consent or behaviour support plan for bed rails.",
+                         "Agency nurse raised both bed rails overnight to stop wandering, with no assessment, consent "
+                         "or behaviour support plan. No injury or distress."),
+    "IR-2620": _incident("A.N.", "neglect", "P2", "16/10/2026 12:50",
+                         "She coughed on the first mouthful and staff removed the meal at once.",
+                         "Resident on a minced and moist diet was served a regular-texture meal. Coughed, meal removed "
+                         "at once. Checked by RN, no treatment needed."),
+}
+
+
+def aged_care_client():
+    """Triages each report. Paraphrases the bed rails evidence the first time, so the quote check sends it back."""
+    seen = {}
+
+    def respond(request):
+        text = request["messages"][1]["content"]
+        key = next(k for k in INCIDENT_READINGS if k in text)
+        seen[key] = seen.get(key, 0) + 1
+        reading = INCIDENT_READINGS[key]
+        if key == "IR-2618" and seen[key] == 1:
+            reading = {**reading, "evidence": "The rails were put up without any consent to stop him wandering."}
+        return reply(content=json.dumps(reading))
+
+    return FakeClient(respond)

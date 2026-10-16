@@ -44,15 +44,28 @@ uv run agents/contract-review/recipe.py
 
 ## Recipes
 
+### For Australian jobs
+
+| Recipe | Who it's for | Example output |
+|---|---|---|
+| [Supplier invoices to Xero](jobs/bookkeeper-invoices/) | Bookkeepers. Checks ABNs and GST, catches duplicates, writes a Xero import file | [Report](jobs/bookkeeper-invoices/example-output/report.md) |
+| [Serious incident triage](jobs/aged-care-incidents/) | Aged care managers. Works out what to report under SIRS, at what priority, by when | [Triage list](jobs/aged-care-incidents/example-output/triage.md) |
+
+### Agents and pipelines
+
 | Recipe | What it does | Example output |
 |---|---|---|
 | [Contract review agent](agents/contract-review/) | Checks every clause of a contract against your policy playbook and drafts replacement wording | [Report](agents/contract-review/example-output/report.md) |
 | [Research analyst agent](agents/research-analyst/) | Answers a question from your own documents with citations, then proves every quote is real | [Answer](agents/research-analyst/example-output/answer.md) |
 | [Announcement monitor](batch/announcement-monitor/) | Reads overnight company announcements and writes a morning digest that leads with what matters | [Digest](batch/announcement-monitor/example-output/digest.md) |
 
+### Australian checks
+
+[`au/checks.py`](au/checks.py) holds the checks every recipe can lean on, in plain code: ABN, ACN, TFN and Medicare check digits, tax file number redaction before text reaches a model, GST arithmetic, BSB and postcode checks, and dates read day first. Copy it into your own project.
+
 ### Coming next
 
-Financial statements to spreadsheet. Meeting recording to minutes. Policy compliance checker. Email triage agent. Private document search. Guides for LangGraph, LlamaIndex, the OpenAI Agents SDK and the Vercel AI SDK.
+CPS 230 service provider register. AUSTRAC suspicious matter narratives. Legal citations to the AGLC. Site voice memo to a quote with GST. Freedom of information triage. Meeting recording to minutes. Guides for LangGraph, LlamaIndex, the OpenAI Agents SDK and the Vercel AI SDK.
 
 ## Why these recipes can be trusted
 
@@ -62,7 +75,8 @@ Most AI examples show the happy path. These show what happens when the model get
 - **Every report says what the checks caught.** You see the rejected quote, the removed figure, the corrected reply.
 - **Nothing is skipped silently.** If an agent misses part of the job, the report says so.
 - **One readable file.** Each `recipe.py` holds the whole solution. No framework to learn.
-- **Tested.** Eleven tests run every recipe end to end on each change, without a key or network.
+- **Australian checks in code.** ABNs, GST and tax file numbers are checked or removed by plain code, not left to the model.
+- **Tested.** Every recipe runs end to end on each change, without a key or network, and against a live model every week.
 
 ## Adapt a recipe with your coding assistant
 

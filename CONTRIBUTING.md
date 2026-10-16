@@ -14,11 +14,11 @@ demo/scripts.py    add a scripted model run for your recipe
 tests/test_<recipe_name>.py
 ```
 
-Add the recipe to `registry.yaml` and to the table in the main `README.md`.
+Add the recipe to `registry.yaml` and to the table in the main `README.md`. If the website playground has a matching example, add its id as `playground:` in the registry.
 
 ## Rules
 
-1. **One file.** Keep the solution in `recipe.py`. Readers should not chase imports.
+1. **One file.** Keep the solution in `recipe.py`. Readers should not chase imports. The one shared import is `au/checks.py`, for Australian checks such as ABNs, GST and tax file numbers. Add new Australian checks there, with tests.
 2. **Standard library plus the OpenAI SDK.** Add another dependency only when the recipe is about that tool, and declare it in the `# /// script` header so `uv run` installs it.
 3. **Configurable endpoint.** Read `CONTINUUM_API_KEY`, `CONTINUUM_BASE_URL` and `CONTINUUM_MODEL` from the environment. Never hard-code a key.
 4. **Fictional data.** No real companies, people, contracts or client material. Say so in the README.

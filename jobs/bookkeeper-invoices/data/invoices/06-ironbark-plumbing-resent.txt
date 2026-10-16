@@ -1,0 +1,25 @@
+From: accounts@ironbarkplumbing.example
+Subject: Resending invoice INV-20417
+
+Hi team, resending in case this one got lost. Thanks.
+
+TAX INVOICE
+
+Ironbark Plumbing Pty Ltd
+ABN 90 551 661 605
+14 Tannery Lane, Brunswick VIC 3056
+
+Bill to: Harbourline Property Services
+Invoice number: INV-20417
+Invoice date: 03/10/2026
+Due date: 17/10/2026
+
+Description                              Qty    Unit price    Amount
+Replace hot water unit, 315L electric    1      $1,890.00     $1,890.00
+Labour, licensed plumber                 3.5    $128.00       $448.00
+Tempering valve                          1      $164.00       $164.00
+Call-out fee                             1      $95.00        $95.00
+
+Subtotal (ex GST)   $2,597.00
+GST                 $259.70
+Total (inc GST)     $2,856.70

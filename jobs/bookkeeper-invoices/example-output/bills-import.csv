@@ -1,0 +1,8 @@
+ContactName,InvoiceNumber,InvoiceDate,DueDate,Description,Quantity,UnitAmount,AccountCode,TaxType,Currency
+Ironbark Plumbing Pty Ltd,INV-20417,03/10/2026,17/10/2026,"Replace hot water unit, 315L electric",1,1890.00,,GST on Expenses,AUD
+Ironbark Plumbing Pty Ltd,INV-20417,03/10/2026,17/10/2026,"Labour, licensed plumber",3.5,128.00,,GST on Expenses,AUD
+Ironbark Plumbing Pty Ltd,INV-20417,03/10/2026,17/10/2026,Tempering valve,1,164.00,,GST on Expenses,AUD
+Ironbark Plumbing Pty Ltd,INV-20417,03/10/2026,17/10/2026,Call-out fee,1,95.00,,GST on Expenses,AUD
+Gumleaf Office Supplies,77812,06/10/2026,05/11/2026,"A4 copy paper, 10 reams",10,6.50,,GST on Expenses,AUD
+Gumleaf Office Supplies,77812,06/10/2026,05/11/2026,Toner cartridge HL-2350,2,89.00,,GST on Expenses,AUD
+Gumleaf Office Supplies,77812,06/10/2026,05/11/2026,Milk and tea for kitchen,1,18.40,,GST Free Expenses,AUD
