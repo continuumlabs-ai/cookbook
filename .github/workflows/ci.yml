@@ -1,6 +1,7 @@
 name: Recipes
 
 on:
+  workflow_dispatch: # adds a "Run workflow" button on the Actions tab
   push:
   pull_request:
   schedule:
