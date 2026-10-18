@@ -1,0 +1,32 @@
+Scoring z-ai/glm-5.2
+  Contract review: 16/16
+  Research: 4/4
+  Announcements: 17/18
+  Invoices: 11/11
+  Aged care incidents: 12/12
+# Australian work scorecard
+
+Run 18 October 2026 against `https://openrouter.ai/api/v1`.
+
+Five real Australian tasks, marked against the right answers in [`answers.json`](answers.json). Scores are the model's own judgement, before the recipes' code checks step in.
+
+| Model | Contract review | Research | Announcements | Invoices | Aged care incidents | Overall | Tokens | Time |
+|---|---:|---:|---:|---:|---:|---:|---:|---:|
+| `z-ai/glm-5.2` | 100% | 100% | 94% | 100% | 100% | **99%** | 37,441 | 22s |
+
+## What each model got wrong, and what the code caught
+
+**`z-ai/glm-5.2`**
+
+- Research: code sent back 2 drafts
+- Announcements: Tasman direction: neutral
+
+## How it is marked
+
+- **Contract review:** status and clause for each of 8 policy topics.
+- **Research:** an answer that passes the citation checks, the right conclusion, and the two figures that decide it.
+- **Announcements:** category, materiality and direction for 6 announcements.
+- **Invoices:** where each of 6 invoices should land, and the total read from each.
+- **Aged care incidents:** incident type and the model's own priority for 6 reports.
+
+All sample data is fictional. Rerun it yourself with `python scorecard/run.py`.

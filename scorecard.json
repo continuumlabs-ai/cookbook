@@ -1,0 +1,50 @@
+{
+  "endpoint": "https://openrouter.ai/api/v1",
+  "date": "2026-10-18",
+  "rows": [
+    {
+      "model": "z-ai/glm-5.2",
+      "tasks": {
+        "Contract review": {
+          "points": 16,
+          "out_of": 16,
+          "notes": [],
+          "seconds": 6.2
+        },
+        "Research": {
+          "points": 4,
+          "out_of": 4,
+          "notes": [
+            "code sent back 2 drafts"
+          ],
+          "seconds": 8.2
+        },
+        "Announcements": {
+          "points": 17,
+          "out_of": 18,
+          "notes": [
+            "Tasman direction: neutral"
+          ],
+          "seconds": 2.8
+        },
+        "Invoices": {
+          "points": 11,
+          "out_of": 11,
+          "notes": [],
+          "seconds": 2.8
+        },
+        "Aged care incidents": {
+          "points": 12,
+          "out_of": 12,
+          "notes": [],
+          "seconds": 1.9
+        }
+      },
+      "seconds": 21.9,
+      "overall": 99,
+      "calls": 27,
+      "prompt_tokens": 25941,
+      "completion_tokens": 11500
+    }
+  ]
+}
