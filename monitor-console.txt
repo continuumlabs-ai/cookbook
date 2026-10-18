@@ -1,0 +1,48 @@
+# Morning digest, 18 October 2026
+
+6 announcements read. 4 material. 0 need a person to check.
+
+## What matters
+
+### Ironbark Minerals Ltd: Pit wall failure cuts FY27 copper guidance, raises costs
+
+Negative · guidance
+
+Kestrel mine haul road closed ~8 weeks after pit wall failure. FY27 copper production guidance lowered to 180-195kt; AISC up 12% to A$4.85/lb. No injuries; remediation underway.
+
+Key figures: 210-230kt, 180-195kt, 12%, A$4.85/lb, eight weeks
+
+### Tasman Freight Group: CEO resigns after six years, effective 31 January 2027
+
+Negative · management change
+
+The long-serving CEO is departing. The board is searching for a successor, with the CFO to act as interim CEO if needed. Leadership uncertainty may weigh on investor sentiment.
+
+Key figures: six years, 31 January 2027
+
+### Coralwave Health Ltd: $85m placement to fund $120m Northshore Clinics acquisition
+
+Positive · capital raising
+
+Coralwave raises $85m at $1.42 per share, a 9.5% discount, to fund the $120m acquisition of Northshore Clinics. The acquisition is expected to be EPS accretive in its first full year.
+
+Key figures: $85m, $1.42 per share, 9.5%, $120m, 14
+
+### Quokka Software Ltd: Half-year revenue up 31% to $48.2m, first positive operating cash flow
+
+Positive · results
+
+Quokka Software reported strong revenue growth and achieved its first positive operating cash flow. Full-year guidance remains unchanged, indicating management confidence.
+
+Key figures: $48.2m, 31%, $112m, $3.1m
+
+## Routine
+
+- Brindle Property Trust: Non-executive director acquires 50,000 units
+- Wattle Energy Ltd: All AGM resolutions passed on a poll
+
+## What the checks caught
+
+- Quokka Software Ltd: first reply broke the format and was corrected.
+
+Saved to output/monitor/

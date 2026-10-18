@@ -1,0 +1,233 @@
+[
+  {
+    "source": "01-ironbark-plumbing.txt",
+    "data": {
+      "supplier_name": "Ironbark Plumbing Pty Ltd",
+      "supplier_abn": "90 551 661 605",
+      "gst_registered": true,
+      "invoice_number": "INV-20417",
+      "invoice_date": "03/10/2026",
+      "due_date": "17/10/2026",
+      "lines": [
+        {
+          "description": "Replace hot water unit, 315L electric",
+          "quantity": "1",
+          "unit_price": "$1,890.00",
+          "amount": "$1,890.00",
+          "gst_free": false
+        },
+        {
+          "description": "Labour, licensed plumber",
+          "quantity": "3.5",
+          "unit_price": "$128.00",
+          "amount": "$448.00",
+          "gst_free": false
+        },
+        {
+          "description": "Tempering valve",
+          "quantity": "1",
+          "unit_price": "$164.00",
+          "amount": "$164.00",
+          "gst_free": false
+        },
+        {
+          "description": "Call-out fee",
+          "quantity": "1",
+          "unit_price": "$95.00",
+          "amount": "$95.00",
+          "gst_free": false
+        }
+      ],
+      "subtotal_ex_gst": "$2,597.00",
+      "gst": "$259.70",
+      "total_inc_gst": "$2,856.70"
+    },
+    "tfns_redacted": 0,
+    "corrected": false,
+    "findings": [],
+    "status": "ready"
+  },
+  {
+    "source": "02-gumleaf-office-supplies.txt",
+    "data": {
+      "supplier_name": "Gumleaf Office Supplies",
+      "supplier_abn": "87 192 327 523",
+      "gst_registered": true,
+      "invoice_number": "77812",
+      "invoice_date": "6 October 2026",
+      "due_date": null,
+      "lines": [
+        {
+          "description": "A4 copy paper, 10 reams @ $6.50",
+          "quantity": "10",
+          "unit_price": "$6.50",
+          "amount": "$65.00",
+          "gst_free": false
+        },
+        {
+          "description": "Toner cartridge HL-2350, 2 @ $89.00",
+          "quantity": "2",
+          "unit_price": "$89.00",
+          "amount": "$178.00",
+          "gst_free": false
+        },
+        {
+          "description": "Milk and tea for kitchen (GST-free)",
+          "quantity": null,
+          "unit_price": null,
+          "amount": "$18.40",
+          "gst_free": true
+        }
+      ],
+      "subtotal_ex_gst": "$261.40",
+      "gst": "$24.30",
+      "total_inc_gst": "$285.70"
+    },
+    "tfns_redacted": 0,
+    "corrected": false,
+    "findings": [],
+    "status": "ready"
+  },
+  {
+    "source": "03-coastal-courier.txt",
+    "data": {
+      "supplier_name": "COASTAL COURIER CO.",
+      "supplier_abn": "28 322 761 078",
+      "gst_registered": true,
+      "invoice_number": "C-3391",
+      "invoice_date": "07/10/2026",
+      "due_date": null,
+      "lines": [
+        {
+          "description": "3 x same-day delivery Melbourne to Geelong @ $42.00",
+          "quantity": "3",
+          "unit_price": "$42.00",
+          "amount": "$126.00",
+          "gst_free": false
+        },
+        {
+          "description": "Fuel levy 10%",
+          "quantity": null,
+          "unit_price": null,
+          "amount": "$12.60",
+          "gst_free": false
+        }
+      ],
+      "subtotal_ex_gst": "$138.60",
+      "gst": "$13.86",
+      "total_inc_gst": "$152.46"
+    },
+    "tfns_redacted": 0,
+    "corrected": false,
+    "findings": [
+      "ABN 28 322 761 078 fails the ATO check digit test, so it is probably mistyped. Confirm it on ABN Lookup before paying."
+    ],
+    "status": "hold"
+  },
+  {
+    "source": "04-wattle-electrical.txt",
+    "data": {
+      "supplier_name": "Wattle Electrical Services",
+      "supplier_abn": "50 893 268 002",
+      "gst_registered": true,
+      "invoice_number": "WE-1188",
+      "invoice_date": "08/10/2026",
+      "due_date": "22/10/2026",
+      "lines": [
+        {
+          "description": "Switchboard upgrade, 12-way, including RCDs and compliance certificate",
+          "quantity": null,
+          "unit_price": null,
+          "amount": "$1,250.00",
+          "gst_free": false
+        }
+      ],
+      "subtotal_ex_gst": "$1,250.00",
+      "gst": "$132.00",
+      "total_inc_gst": "$1,382.00"
+    },
+    "tfns_redacted": 0,
+    "corrected": false,
+    "findings": [
+      "GST is $132.00 but 10% of the taxable amount ($1,250.00) is $125.00"
+    ],
+    "status": "hold"
+  },
+  {
+    "source": "05-kookaburra-cleaning.txt",
+    "data": {
+      "supplier_name": "Jess Moran, Kookaburra Cleaning",
+      "supplier_abn": null,
+      "gst_registered": false,
+      "invoice_number": "0042",
+      "invoice_date": "09/10/2026",
+      "due_date": null,
+      "lines": [
+        {
+          "description": "Office clean",
+          "quantity": "4",
+          "unit_price": "$85.00",
+          "amount": "$340.00",
+          "gst_free": true
+        }
+      ],
+      "subtotal_ex_gst": "$340.00",
+      "gst": "$0.00",
+      "total_inc_gst": "$340.00"
+    },
+    "tfns_redacted": 1,
+    "corrected": false,
+    "findings": [
+      "No ABN quoted on an invoice over $75.00. Under the ATO's no-ABN withholding rules you may need to withhold 47% ($159.80) unless an exception applies. Ask for their ABN."
+    ],
+    "status": "hold"
+  },
+  {
+    "source": "06-ironbark-plumbing-resent.txt",
+    "data": {
+      "supplier_name": "Ironbark Plumbing Pty Ltd",
+      "supplier_abn": "90 551 661 605",
+      "gst_registered": true,
+      "invoice_number": "INV-20417",
+      "invoice_date": "03/10/2026",
+      "due_date": "17/10/2026",
+      "lines": [
+        {
+          "description": "Replace hot water unit, 315L electric",
+          "quantity": "1",
+          "unit_price": "$1,890.00",
+          "amount": "$1,890.00",
+          "gst_free": false
+        },
+        {
+          "description": "Labour, licensed plumber",
+          "quantity": "3.5",
+          "unit_price": "$128.00",
+          "amount": "$448.00",
+          "gst_free": false
+        },
+        {
+          "description": "Tempering valve",
+          "quantity": "1",
+          "unit_price": "$164.00",
+          "amount": "$164.00",
+          "gst_free": false
+        },
+        {
+          "description": "Call-out fee",
+          "quantity": "1",
+          "unit_price": "$95.00",
+          "amount": "$95.00",
+          "gst_free": false
+        }
+      ],
+      "subtotal_ex_gst": "$2,597.00",
+      "gst": "$259.70",
+      "total_inc_gst": "$2,856.70"
+    },
+    "tfns_redacted": 0,
+    "corrected": false,
+    "status": "duplicate",
+    "duplicate_of": "01-ironbark-plumbing.txt"
+  }
+]

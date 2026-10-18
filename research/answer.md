@@ -1,0 +1,25 @@
+# Research answer
+
+**Question:** Is the member enquiry AI pilot ready for a wider launch? What conditions are still outstanding?
+
+The member enquiry AI pilot is not yet ready for a wider launch. The board approved the pilot in August 2026 subject to three conditions: member data must be stored and processed in Australia; every answer sent to a member must be reviewed by a staff member before it is sent; and the Risk Committee must confirm the pilot meets its accuracy threshold before any wider launch [1].
+
+Of these conditions, the data-residency requirement has been satisfied. The pilot runs on an Australian-hosted model service and no member data left Australia during the pilot [2]. The human-review requirement is reflected in the AI use policy, which states that any AI-generated content sent to a member must be reviewed and approved by a staff member first [3].
+
+The outstanding condition is accuracy. The Risk Committee set the threshold at 95% — the assistant must answer at least 95% of a test set of 500 real member enquiries correctly, as judged by senior staff [4]. The October 2026 pilot results show an accuracy of 93.4% (467 out of 500 correct), which falls short of that threshold [5]. Most errors involved recent changes to contribution caps [5]. Until accuracy improves to meet the 95% bar and the Risk Committee formally confirms it, the pilot cannot proceed to a wider launch [4].
+
+## Sources
+
+1. board-minutes-2026-08: “Approval is subject to three conditions. Member data must be stored and processed in Australia. Every answer sent to a member must be reviewed by a staff member before it is sent. The Risk Committee must confirm the pilot meets its accuracy threshold before any wider launch.”
+2. pilot-results-2026-10: “The pilot runs on an Australian-hosted model service. No member data left Australia during the pilot.”
+3. ai-use-policy: “Any AI-generated content sent to a member must be reviewed and approved by a staff member first.”
+4. risk-committee-2026-09: “The assistant must answer at least 95% of a test set of 500 real member enquiries correctly, as judged by senior staff.”
+5. pilot-results-2026-10: “Senior staff marked the assistant's draft answers to 500 member enquiries. 467 were correct, an accuracy of 93.4%. Most errors involved recent changes to contribution caps.”
+
+## Verification
+
+Every quote was found word for word in its source document, and every figure in the answer appears in a quote it cites.
+An earlier draft was rejected and corrected: the figure 95% in "The October 2026 pilot results show an accuracy of 93.4% (467 out of 500 correct), which f" is not in the quote it cites. Cite a quote that contains it, or remove it.
+An earlier draft was rejected and corrected: the figure 95% in "The October 2026 pilot results show an accuracy of 93.4% (467 out of 500 correct), which f" is not in the quote it cites. Cite a quote that contains it, or remove it.
+
+10 of 10 claims are supported by their cited evidence.

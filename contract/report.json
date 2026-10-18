@@ -1,0 +1,73 @@
+{
+  "summary": "Seven of eight policy topics are non-compliant, with high-risk exceptions on liability (capped at 3 months instead of 12, and customer liability uncapped), data location (offshore processing in Singapore and the US without CRO approval), and intellectual property (supplier owns deliverables instead of the customer). Medium-risk exceptions exist for termination for convenience (180 days vs 90-day max), auto-renewal (no 60-day supplier reminder), and governing law (Singapore instead of Victoria/NSW), plus a low-risk exception on payment terms (14 days vs 30-day standard). Only confidentiality (5-year survival) is compliant. This contract requires substantial redlining before it can be accepted.",
+  "findings": [
+    {
+      "topic": "liability",
+      "clause": "7",
+      "status": "exception",
+      "risk": "high",
+      "explanation": "Clause 7 caps the supplier's liability at 3 months of fees, below the required 12-month minimum, and leaves the customer's liability uncapped, which the policy prohibits.",
+      "suggested_redline": "The Supplier's total liability under this agreement is limited to the fees paid in the 12 months before the claim. The Customer's liability is limited to the fees paid in the 12 months before the claim."
+    },
+    {
+      "topic": "data_location",
+      "clause": "5",
+      "status": "exception",
+      "risk": "high",
+      "explanation": "Clause 5 permits processing in Singapore and the United States and stores backups in the United States, without the required written approval from the Chief Risk Officer for offshore processing.",
+      "suggested_redline": "All Customer data, including backups, must be stored and processed in Australia. Any offshore processing or storage requires prior written approval from the Customer's Chief Risk Officer."
+    },
+    {
+      "topic": "payment_terms",
+      "clause": "2",
+      "status": "exception",
+      "risk": "low",
+      "explanation": "Clause 2 requires payment within 14 days of the invoice date, which is shorter than the standard 30-day term and would require Finance approval.",
+      "suggested_redline": "The Customer will pay each invoice within 30 days of the invoice date. Late payments attract interest at 2% per month."
+    },
+    {
+      "topic": "termination_for_convenience",
+      "clause": "4",
+      "status": "exception",
+      "risk": "medium",
+      "explanation": "Clause 4 requires 180 days' notice for termination for convenience, exceeding the maximum 90 days permitted by policy.",
+      "suggested_redline": "The Customer may terminate for convenience on 90 days' written notice."
+    },
+    {
+      "topic": "auto_renewal",
+      "clause": "3",
+      "status": "exception",
+      "risk": "medium",
+      "explanation": "Clause 3 provides for automatic renewal but does not require the supplier to remind the customer at least 60 days before the renewal date, as required by policy.",
+      "suggested_redline": "This agreement renews automatically for further 12-month terms unless either party gives notice at least 30 days before the end of the current term. The Supplier must remind the Customer in writing at least 60 days before each renewal date."
+    },
+    {
+      "topic": "governing_law",
+      "clause": "9",
+      "status": "exception",
+      "risk": "medium",
+      "explanation": "Clause 9 designates Singapore law as the governing law, but policy requires the contract to be governed by the laws of Victoria or New South Wales.",
+      "suggested_redline": "This agreement is governed by the laws of Victoria."
+    },
+    {
+      "topic": "intellectual_property",
+      "clause": "6",
+      "status": "exception",
+      "risk": "high",
+      "explanation": "Clause 6 grants the supplier ownership of all deliverables and gives the customer only a licence, whereas policy requires the customer to own all deliverables created specifically for it.",
+      "suggested_redline": "The Customer owns all intellectual property in the deliverables created specifically for it under this agreement. The Supplier retains ownership of its pre-existing tools, models and methodologies."
+    },
+    {
+      "topic": "confidentiality",
+      "clause": "8",
+      "status": "compliant",
+      "risk": "low",
+      "explanation": "Clause 8 requires confidentiality obligations to survive for 5 years after termination, exceeding the 3-year minimum required by policy.",
+      "suggested_redline": ""
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 4830,
+    "completion_tokens": 1639
+  }
+}
