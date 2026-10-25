@@ -1,0 +1,98 @@
+[
+  {
+    "company": "Brindle Property Trust",
+    "category": "governance_routine",
+    "material": false,
+    "direction": "positive",
+    "headline": "Non-executive director acquires 50,000 units on market",
+    "summary": "A non-executive director purchased 50,000 units at $2.18 per unit, increasing their total holding to 410,000 units. This is a routine director interest notice.",
+    "key_figures": [
+      "50,000 units",
+      "$2.18 per unit",
+      "410,000 units"
+    ],
+    "dropped_figures": [],
+    "source": "brindle-property-director-interest.txt",
+    "corrected": false
+  },
+  {
+    "company": "Coralwave Health Ltd",
+    "category": "capital_raising",
+    "material": true,
+    "direction": "positive",
+    "headline": "$85m placement to fund $120m Northshore Clinics acquisition",
+    "summary": "Coralwave Health raises $85m at a 9.5% discount to acquire 14 day-surgery clinics for $120m. The acquisition is expected to be EPS accretive in its first full year.",
+    "key_figures": [
+      "$85m",
+      "$1.42",
+      "9.5%",
+      "14",
+      "$120m"
+    ],
+    "dropped_figures": [],
+    "source": "coralwave-health-placement.txt",
+    "corrected": false
+  },
+  {
+    "company": "Ironbark Minerals Ltd",
+    "category": "guidance",
+    "material": true,
+    "direction": "negative",
+    "headline": "FY27 copper guidance cut after pit wall failure closes mine",
+    "summary": "Pit wall failure at Kestrel mine closes main haul road for ~8 weeks, reducing FY27 copper production guidance and raising AISC by 12%. No injuries. Remediation underway; update at quarterly report in January.",
+    "key_figures": [
+      "210-230kt",
+      "180-195kt",
+      "12%",
+      "A$4.85/lb",
+      "eight weeks"
+    ],
+    "dropped_figures": [],
+    "source": "ironbark-minerals-guidance.txt",
+    "corrected": false
+  },
+  {
+    "company": "Quokka Software Ltd",
+    "category": "results",
+    "material": true,
+    "direction": "positive",
+    "headline": "Half-year revenue up 31%, first positive operating cash flow",
+    "summary": "Revenue grew strongly to $48.2m with ARR at $112m. The company achieved its first positive operating cash flow of $3.1m. Full-year guidance remains unchanged, signaling management confidence.",
+    "key_figures": [
+      "$48.2m",
+      "31%",
+      "$112m",
+      "$3.1m"
+    ],
+    "dropped_figures": [],
+    "source": "quokka-software-half-year.txt",
+    "corrected": false
+  },
+  {
+    "company": "Tasman Freight Group",
+    "category": "management_change",
+    "material": true,
+    "direction": "negative",
+    "headline": "CEO resigns after six years; search for successor underway",
+    "summary": "The CEO has resigned effective 31 January 2027. The board is searching for a successor internally and externally. The CFO will serve as interim CEO if no successor is appointed by the effective date, creating leadership uncertainty.",
+    "key_figures": [
+      "six years",
+      "31 January 2027"
+    ],
+    "dropped_figures": [],
+    "source": "tasman-freight-ceo.txt",
+    "corrected": false
+  },
+  {
+    "company": "Wattle Energy Ltd",
+    "category": "governance_routine",
+    "material": false,
+    "direction": "neutral",
+    "headline": "All resolutions passed at Annual General Meeting",
+    "summary": "Shareholders approved all resolutions at the AGM. Routine governance matter with no unexpected outcomes.",
+    "key_figures": [],
+    "dropped_figures": [],
+    "source": "wattle-energy-agm.txt",
+    "corrected": false
+  }
+]

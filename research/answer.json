@@ -1,0 +1,111 @@
+{
+  "question": "Is the member enquiry AI pilot ready for a wider launch? What conditions are still outstanding?",
+  "answer": "The member enquiry AI pilot is not yet ready for a wider launch. The board's August 2026 approval was subject to three conditions, and at least one remains unmet [1].\n\n1. **Australian data residency** \u2014 This condition appears satisfied. The pilot ran on an Australian-hosted model service and no member data left Australia during the pilot [2].\n\n2. **Staff review of every answer** \u2014 The board required that every answer sent to a member be reviewed by a staff member before sending [1]. The pilot results do not explicitly confirm whether this review process was operationally in place, so this condition cannot be verified from the available documents.\n\n3. **Risk Committee accuracy threshold** \u2014 This condition is not met. The Risk Committee set a threshold of at least 95% accuracy on a test set of 500 real member enquiries [3]. The pilot achieved 93.4% accuracy (467 out of 500 correct), falling short of the required 95% [2][3]. Most errors involved recent changes to contribution caps [2].\n\nIn summary, the outstanding condition is the accuracy threshold: the pilot's 93.4% accuracy is below the 95% required by the Risk Committee [2][3]. Until that gap is closed and the Risk Committee confirms the threshold is met, a wider launch cannot proceed [1]. The staff-review condition is also not explicitly confirmed in the pilot results, so its status remains unclear from the available documents.",
+  "citations": [
+    {
+      "doc_id": "board-minutes-2026-08",
+      "quote": "Approval is subject to three conditions. Member data must be stored and processed in Australia. Every answer sent to a member must be reviewed by a staff member before it is sent. The Risk Committee must confirm the pilot meets its accuracy threshold before any wider launch."
+    },
+    {
+      "doc_id": "pilot-results-2026-10",
+      "quote": "Senior staff marked the assistant's draft answers to 500 member enquiries. 467 were correct, an accuracy of 93.4%. Most errors involved recent changes to contribution caps."
+    },
+    {
+      "doc_id": "risk-committee-2026-09",
+      "quote": "The assistant must answer at least 95% of a test set of 500 real member enquiries correctly, as judged by senior staff."
+    }
+  ],
+  "claims": [
+    {
+      "claim": "The member enquiry AI pilot is not yet ready for a wider launch.",
+      "citations": [
+        1
+      ],
+      "supported": true,
+      "reason": "The board minutes state approval is subject to three conditions and the Risk Committee must confirm the accuracy threshold before any wider launch; since the threshold is not met, a wider launch cannot proceed."
+    },
+    {
+      "claim": "The board's August 2026 approval was subject to three conditions.",
+      "citations": [
+        1
+      ],
+      "supported": true,
+      "reason": "The board minutes explicitly state 'Approval is subject to three conditions.'"
+    },
+    {
+      "claim": "At least one condition remains unmet.",
+      "citations": [
+        1,
+        2,
+        3
+      ],
+      "supported": true,
+      "reason": "The Risk Committee requires 95% accuracy [3], but the pilot achieved 93.4% [2], so the accuracy threshold condition is unmet."
+    },
+    {
+      "claim": "Australian data residency condition appears satisfied \u2014 the pilot ran on an Australian-hosted model service and no member data left Australia during the pilot.",
+      "citations": [
+        2
+      ],
+      "supported": false,
+      "reason": "Citation [2] (pilot-results-2026-10) says nothing about Australian data residency, an Australian-hosted model service, or whether member data left Australia. No cited evidence supports this claim."
+    },
+    {
+      "claim": "The board required that every answer sent to a member be reviewed by a staff member before sending.",
+      "citations": [
+        1
+      ],
+      "supported": true,
+      "reason": "The board minutes state 'Every answer sent to a member must be reviewed by a staff member before it is sent.'"
+    },
+    {
+      "claim": "The pilot results do not explicitly confirm whether the staff review process was operationally in place.",
+      "citations": [
+        2
+      ],
+      "supported": true,
+      "reason": "Citation [2] describes senior staff marking answers for accuracy testing but does not confirm a pre-send staff review process was operationally in place for the pilot."
+    },
+    {
+      "claim": "The Risk Committee set a threshold of at least 95% accuracy on a test set of 500 real member enquiries.",
+      "citations": [
+        3
+      ],
+      "supported": true,
+      "reason": "The Risk Committee minutes state 'The assistant must answer at least 95% of a test set of 500 real member enquiries correctly, as judged by senior staff.'"
+    },
+    {
+      "claim": "The pilot achieved 93.4% accuracy (467 out of 500 correct), falling short of the required 95%.",
+      "citations": [
+        2,
+        3
+      ],
+      "supported": true,
+      "reason": "Citation [2] reports 467 correct out of 500 (93.4%), and citation [3] sets the threshold at 95%, so the pilot fell short."
+    },
+    {
+      "claim": "Most errors involved recent changes to contribution caps.",
+      "citations": [
+        2
+      ],
+      "supported": true,
+      "reason": "Citation [2] states 'Most errors involved recent changes to contribution caps.'"
+    },
+    {
+      "claim": "Until the accuracy gap is closed and the Risk Committee confirms the threshold is met, a wider launch cannot proceed.",
+      "citations": [
+        1
+      ],
+      "supported": true,
+      "reason": "The board minutes state 'The Risk Committee must confirm the pilot meets its accuracy threshold before any wider launch.'"
+    },
+    {
+      "claim": "The staff-review condition's status remains unclear from the available documents.",
+      "citations": [
+        2
+      ],
+      "supported": true,
+      "reason": "Citation [2] does not explicitly confirm or deny that the staff-review-before-sending process was operationally in place during the pilot."
+    }
+  ]
+}

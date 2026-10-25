@@ -1,0 +1,72 @@
+# Contract review
+
+Seven of eight policy topics are non-compliant, with the most critical being liability (capped at 3 months instead of 12, and uncapped customer liability), data location (offshore processing without CRO approval), and intellectual property (supplier owns deliverables instead of the customer). Medium-risk exceptions include termination for convenience (180 days vs 90 required), auto-renewal (no 60-day reminder), and governing law (Singapore instead of Victoria/NSW). Only the confidentiality clause is compliant, with a 5-year survival period exceeding the 3-year minimum.
+
+7 of 8 policy topics need attention.
+
+| Topic | Clause | Status | Risk |
+|---|---|---|---|
+| liability | 7 | exception | high |
+| data location | 5 | exception | high |
+| intellectual property | 6 | exception | high |
+| termination for convenience | 4 | exception | medium |
+| auto renewal | 3 | exception | medium |
+| governing law | 9 | exception | medium |
+| payment terms | 2 | exception | low |
+| confidentiality | 8 | compliant | low |
+
+## Liability (clause 7)
+
+Clause 7 caps the Supplier's liability at 3 months of fees, but the policy requires a cap of no less than 12 months. Additionally, the Customer's liability is stated as unlimited, which the policy explicitly does not accept.
+
+Suggested wording:
+
+> The Supplier's total liability under this agreement is limited to the fees paid in the 12 months before the claim. The Customer's liability is limited to the fees paid in the 12 months before the claim.
+
+## Data location (clause 5)
+
+Clause 5 permits data processing in Singapore and the United States and backups in the United States, but the policy requires all customer data and backups to be stored and processed in Australia unless the Chief Risk Officer gives written approval for offshore processing.
+
+Suggested wording:
+
+> The Supplier will store and process all Customer data, including backups, in Australia. Any offshore processing requires prior written approval from the Customer's Chief Risk Officer.
+
+## Intellectual property (clause 6)
+
+Clause 6 gives the Supplier ownership of all IP in deliverables and only grants the Customer a licence during the term, but the policy requires the Customer to own all deliverables created specifically for it while the Supplier retains its pre-existing tools.
+
+Suggested wording:
+
+> The Customer owns all intellectual property in the analytics models, reports and other deliverables created specifically for the Customer. The Supplier retains ownership of its pre-existing tools and methodologies.
+
+## Termination for convenience (clause 4)
+
+Clause 4 allows the Customer to terminate for convenience on 180 days' notice, but the policy requires the ability to terminate on no more than 90 days' notice.
+
+Suggested wording:
+
+> The Customer may terminate for convenience on 90 days' written notice.
+
+## Auto renewal (clause 3)
+
+Clause 3 provides for automatic renewal but does not require the Supplier to remind the Customer at least 60 days before the renewal date, which the policy requires for auto-renewal to be acceptable.
+
+Suggested wording:
+
+> It renews automatically for further 12-month terms unless either party gives notice at least 30 days before the end of the current term. The Supplier must remind the Customer in writing at least 60 days before each renewal date.
+
+## Governing law (clause 9)
+
+Clause 9 specifies Singapore as the governing law, but the policy requires the contract to be governed by the laws of Victoria or New South Wales.
+
+Suggested wording:
+
+> This agreement is governed by the laws of Victoria.
+
+## Payment terms (clause 2)
+
+Clause 2 requires payment within 14 days of the invoice date, which is shorter than the policy's standard 30-day term and no Finance approval has been obtained.
+
+Suggested wording:
+
+> The Customer will pay each invoice within 30 days of receipt. Late payments attract interest at 2% per month.
