@@ -1,0 +1,28 @@
+# Research answer
+
+**Question:** Is the member enquiry AI pilot ready for a wider launch? What conditions are still outstanding?
+
+The member enquiry AI pilot is **not yet ready** for a wider launch. The board approved the pilot in August 2026 subject to three conditions: (1) member data must be stored and processed in Australia; (2) every answer sent to a member must be reviewed by a staff member before it is sent; and (3) the Risk Committee must confirm the pilot meets its accuracy threshold before any wider launch [1].
+
+Two of the three conditions appear to be satisfied. The pilot ran on an Australian-hosted model service and no member data left Australia [2]. The AI use policy requires that any AI-generated content sent to a member be reviewed and approved by a staff member first [3], and the pilot results show senior staff reviewed the assistant's draft answers [2].
+
+The outstanding condition is the accuracy threshold. The Risk Committee set the threshold in September 2026: the assistant must answer at least 95% of a test set of 500 real member enquiries correctly, as judged by senior staff [4]. The October 2026 pilot results show the assistant answered 467 of 500 enquiries correctly — an accuracy of 93.4% [2]. This falls short of the 95% requirement [4]. Most errors involved recent changes to contribution caps [2]. There is no evidence in the library that the Risk Committee has confirmed the threshold has been met; management is due to report progress to the Risk Committee by December 2026 [1].
+
+## Sources
+
+1. board-minutes-2026-08: “Approval is subject to three conditions. Member data must be stored and processed in Australia. Every answer sent to a member must be reviewed by a staff member before it is sent. The Risk Committee must confirm the pilot meets its accuracy threshold before any wider launch.”
+2. pilot-results-2026-10: “Senior staff marked the assistant's draft answers to 500 member enquiries. 467 were correct, an accuracy of 93.4%. Most errors involved recent changes to contribution caps.”
+3. ai-use-policy: “Any AI-generated content sent to a member must be reviewed and approved by a staff member first.”
+4. risk-committee-2026-09: “The assistant must answer at least 95% of a test set of 500 real member enquiries correctly, as judged by senior staff.”
+
+## Verification
+
+Every quote was found word for word in its source document, and every figure in the answer appears in a quote it cites.
+An earlier draft was rejected and corrected: the figure 95% in "The October 2026 pilot results show the assistant answered 467 of 500 enquiries correctly " is not in the quote it cites. Cite a quote that contains it, or remove it.
+
+12 of 17 claims are supported by their cited evidence.
+- Not supported: Two of the three conditions appear to be satisfied. (The staff-review condition is supported by [2] and [3], but the Australian data storage condition is not supported by any cited evidence. [2] says nothing about data hosting or location.)
+- Not supported: The pilot ran on an Australian-hosted model service and no member data left Australia. ([2] (pilot-results-2026-10) discusses accuracy results and error types only. It says nothing about Australian hosting or data not leaving Australia.)
+- Not supported: The outstanding condition is the accuracy threshold. (While [2] and [4] show the accuracy threshold was not met, the claim that the other two conditions are satisfied (making accuracy the only outstanding one) is not fully supported because the Australian data storage condition is unconfirmed by any cited evidence.)
+- Not supported: There is no evidence in the library that the Risk Committee has confirmed the threshold has been met. ([1] states the Risk Committee must confirm the threshold but does not address whether such confirmation has or has not occurred. An absence-of-evidence claim is not supported by a quote that merely states the requirement.)
+- Not supported: Management is due to report progress to the Risk Committee by December 2026. ([1] makes no mention of December 2026 or any management reporting timeline to the Risk Committee.)
