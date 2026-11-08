@@ -1,0 +1,35 @@
+# Research answer
+
+**Question:** Is the member enquiry AI pilot ready for a wider launch? What conditions are still outstanding?
+
+The member enquiry AI pilot is **not yet ready** for a wider launch. The board approved the pilot in August 2026 subject to three conditions, and while two have been satisfied, the critical accuracy condition has not been met [1][2].
+
+**Conditions met:**
+
+1. **Australian data residency** — The pilot ran on an Australian-hosted model service and no member data left Australia during the pilot [2]. This satisfies the board's requirement that member data be stored and processed in Australia [1].
+
+2. **Human review of answers** — The AI use policy requires that any AI-generated content sent to a member must be reviewed and approved by a staff member first [3]. The board's condition that every answer be staff-reviewed before sending is therefore supported by policy [1].
+
+**Condition still outstanding:**
+
+3. **Risk Committee confirmation of accuracy threshold** — The Risk Committee set the launch threshold at 95% accuracy on a test set of 500 real member enquiries [4]. The pilot results (October 2026) show an accuracy of 93.4% (467 out of 500 correct) [2], which falls short of the 95% threshold [4]. Most errors involved recent changes to contribution caps [2]. Because the accuracy threshold has not been met, the Risk Committee has not — and cannot — confirm readiness for a wider launch [1].
+
+**Summary:** The pilot demonstrated strong efficiency gains, with average handling time per enquiry falling by 38% [5], and it met data-residency and human-review requirements. However, it cannot proceed to a wider launch until accuracy improves from 93.4% [2] to at least 95% [4] and the Risk Committee formally confirms the threshold has been met [1].
+
+## Sources
+
+1. board-minutes-2026-08: “Approval is subject to three conditions. Member data must be stored and processed in Australia. Every answer sent to a member must be reviewed by a staff member before it is sent. The Risk Committee must confirm the pilot meets its accuracy threshold before any wider launch.”
+2. pilot-results-2026-10: “Senior staff marked the assistant's draft answers to 500 member enquiries. 467 were correct, an accuracy of 93.4%.”
+3. ai-use-policy: “Any AI-generated content sent to a member must be reviewed and approved by a staff member first.”
+4. risk-committee-2026-09: “The assistant must answer at least 95% of a test set of 500 real member enquiries correctly, as judged by senior staff.”
+5. pilot-results-2026-10: “Average handling time per enquiry fell by 38%.”
+
+## Verification
+
+Every quote was found word for word in its source document, and every figure in the answer appears in a quote it cites.
+An earlier draft was rejected and corrected: the figure 95% in "The pilot results (October 2026) show an accuracy of 93.4% (467 out of 500 correct), which" is not in the quote it cites. Cite a quote that contains it, or remove it; the figure 38% in "**Summary:** The pilot demonstrated strong efficiency gains (average handling time fell by" is not in the quote it cites. Cite a quote that contains it, or remove it.
+
+12 of 15 claims are supported by their cited evidence.
+- Not supported: The pilot ran on an Australian-hosted model service and no member data left Australia during the pilot. (The cited evidence for [2] only mentions accuracy results (467/500 correct, 93.4%). It says nothing about Australian data residency or data not leaving Australia.)
+- Not supported: Most errors involved recent changes to contribution caps. (The cited evidence for [2] only mentions the accuracy figure. It says nothing about the nature of errors or contribution caps.)
+- Not supported: The pilot met data-residency and human-review requirements. (Human-review being met is supported by [3]. However, data-residency being met is not supported by any cited evidence — [2] only discusses accuracy, and no citation provides evidence that the pilot actually ran on Australian-hosted infrastructure or that data stayed in Australia.)
