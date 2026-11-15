@@ -1,0 +1,127 @@
+{
+  "_about": "The right answers the scorecard marks against. They are our judgement of the fictional sample data in this repository, published so anyone can check or challenge them.",
+  "contract_review": {
+    "liability": {
+      "clause": "7",
+      "status": "exception"
+    },
+    "data_location": {
+      "clause": "5",
+      "status": "exception"
+    },
+    "intellectual_property": {
+      "clause": "6",
+      "status": "exception"
+    },
+    "termination_for_convenience": {
+      "clause": "4",
+      "status": "exception"
+    },
+    "auto_renewal": {
+      "clause": "3",
+      "status": "exception"
+    },
+    "governing_law": {
+      "clause": "9",
+      "status": "exception"
+    },
+    "payment_terms": {
+      "clause": "2",
+      "status": "exception"
+    },
+    "confidentiality": {
+      "clause": "8",
+      "status": "compliant"
+    }
+  },
+  "research_analyst": {
+    "not_ready_pattern": "\\bnot (yet )?ready\\b|\\bnot yet\\b|isn't (yet )?ready|is not (yet )?ready|(has|have) not (yet )?been met|\\bnot met\\b",
+    "must_mention": [
+      "93.4%",
+      "95%"
+    ]
+  },
+  "announcement_monitor": {
+    "Ironbark Minerals Ltd": {
+      "category": "guidance",
+      "material": true,
+      "direction": "negative"
+    },
+    "Coralwave Health Ltd": {
+      "category": "capital_raising",
+      "material": true,
+      "direction": "mixed"
+    },
+    "Tasman Freight Group": {
+      "category": "management_change",
+      "material": true,
+      "direction": "negative"
+    },
+    "Wattle Energy Ltd": {
+      "category": "governance_routine",
+      "material": false,
+      "direction": "neutral"
+    },
+    "Brindle Property Trust": {
+      "category": "governance_routine",
+      "material": false,
+      "direction": "neutral"
+    },
+    "Quokka Software Ltd": {
+      "category": "results",
+      "material": true,
+      "direction": "positive"
+    }
+  },
+  "bookkeeper_invoices": {
+    "01-ironbark-plumbing.txt": {
+      "status": "ready",
+      "total": "2856.70"
+    },
+    "02-gumleaf-office-supplies.txt": {
+      "status": "ready",
+      "total": "285.70"
+    },
+    "03-coastal-courier.txt": {
+      "status": "hold",
+      "total": "152.46"
+    },
+    "04-wattle-electrical.txt": {
+      "status": "hold",
+      "total": "1382.00"
+    },
+    "05-kookaburra-cleaning.txt": {
+      "status": "hold",
+      "total": "340.00"
+    },
+    "06-ironbark-plumbing-resent.txt": {
+      "status": "duplicate"
+    }
+  },
+  "aged_care_incidents": {
+    "01-bathroom-fall.txt": {
+      "category": "not_reportable",
+      "priority": "none"
+    },
+    "02-missing-from-memory-unit.txt": {
+      "category": "unexplained_absence",
+      "priority": "P1"
+    },
+    "03-forearm-bruising.txt": {
+      "category": "unreasonable_use_of_force",
+      "priority": "P1"
+    },
+    "04-bank-card-withdrawals.txt": {
+      "category": "stealing_or_financial_coercion_by_staff",
+      "priority": "P1"
+    },
+    "05-bed-rails-overnight.txt": {
+      "category": "inappropriate_use_of_restrictive_practices",
+      "priority": "P2"
+    },
+    "06-texture-modified-meal.txt": {
+      "category": "neglect",
+      "priority": "P2"
+    }
+  }
+}
