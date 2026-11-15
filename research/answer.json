@@ -1,0 +1,166 @@
+{
+  "question": "Is the member enquiry AI pilot ready for a wider launch? What conditions are still outstanding?",
+  "answer": "The member enquiry AI pilot is **not yet ready** for a wider launch. The board's August 2026 approval was subject to three conditions, and at least one remains unmet [1][2].\n\n**The three conditions and their status:**\n\n1. **Member data stored and processed in Australia** \u2014 This condition appears to be satisfied. The pilot ran on an Australian-hosted model service and no member data left Australia during the pilot [4].\n\n2. **Every answer reviewed by a staff member before sending** \u2014 This requirement is established in the AI use policy, which states that any AI-generated content sent to a member must be reviewed and approved by a staff member first [5]. The pilot results describe senior staff marking draft answers, consistent with human review being in place [3].\n\n3. **Risk Committee confirmation of accuracy threshold** \u2014 This is the **outstanding condition**. The Risk Committee set the threshold as follows: \"The assistant must answer at least 95% of a test set of 500 real member enquiries correctly, as judged by senior staff\" [6]. The October 2026 pilot results show that \"Senior staff marked the assistant's draft answers to 500 member enquiries. 467 were correct, an accuracy of 93.4%\" [3], which falls short of the 95% threshold [6]. Most errors involved recent changes to contribution caps [7].\n\n**Conclusion:** The pilot has not met the accuracy threshold required by the Risk Committee, so the committee cannot yet confirm readiness for a wider launch [1][6]. Until accuracy improves to at least 95% [6], the pilot should not proceed to a wider launch. The other two conditions (Australian data residency and human review) appear to be in place [4][5].",
+  "citations": [
+    {
+      "doc_id": "board-minutes-2026-08",
+      "quote": "Approval is subject to three conditions. Member data must be stored and processed in Australia. Every answer sent to a member must be reviewed by a staff member before it is sent. The Risk Committee must confirm the pilot meets its accuracy threshold before any wider launch."
+    },
+    {
+      "doc_id": "board-minutes-2026-08",
+      "quote": "The board approved a pilot of an AI assistant to help staff answer member enquiries."
+    },
+    {
+      "doc_id": "pilot-results-2026-10",
+      "quote": "Senior staff marked the assistant's draft answers to 500 member enquiries. 467 were correct, an accuracy of 93.4%."
+    },
+    {
+      "doc_id": "pilot-results-2026-10",
+      "quote": "The pilot runs on an Australian-hosted model service. No member data left Australia during the pilot."
+    },
+    {
+      "doc_id": "ai-use-policy",
+      "quote": "Any AI-generated content sent to a member must be reviewed and approved by a staff member first."
+    },
+    {
+      "doc_id": "risk-committee-2026-09",
+      "quote": "The assistant must answer at least 95% of a test set of 500 real member enquiries correctly, as judged by senior staff."
+    },
+    {
+      "doc_id": "pilot-results-2026-10",
+      "quote": "Most errors involved recent changes to contribution caps."
+    }
+  ],
+  "claims": [
+    {
+      "claim": "The member enquiry AI pilot is not yet ready for a wider launch.",
+      "citations": [
+        1,
+        2,
+        3,
+        6
+      ],
+      "supported": true,
+      "reason": "Board approval [1] was conditional on three conditions including Risk Committee confirmation of accuracy threshold [1]. Pilot achieved 93.4% accuracy [3], below the 95% threshold [6], so the threshold condition is unmet."
+    },
+    {
+      "claim": "The board's August 2026 approval was subject to three conditions.",
+      "citations": [
+        1
+      ],
+      "supported": true,
+      "reason": "Citation [1] explicitly states approval is subject to three conditions."
+    },
+    {
+      "claim": "At least one condition remains unmet.",
+      "citations": [
+        3,
+        6
+      ],
+      "supported": true,
+      "reason": "The accuracy threshold of 95% [6] was not met \u2014 pilot achieved 93.4% [3]."
+    },
+    {
+      "claim": "Member data stored and processed in Australia \u2014 this condition appears to be satisfied.",
+      "citations": [
+        4
+      ],
+      "supported": true,
+      "reason": "Citation [4] confirms the pilot runs on an Australian-hosted model service and no member data left Australia."
+    },
+    {
+      "claim": "The pilot ran on an Australian-hosted model service and no member data left Australia during the pilot.",
+      "citations": [
+        4
+      ],
+      "supported": true,
+      "reason": "Directly stated in citation [4]."
+    },
+    {
+      "claim": "Every answer reviewed by a staff member before sending \u2014 this requirement is established in the AI use policy.",
+      "citations": [
+        5
+      ],
+      "supported": true,
+      "reason": "Citation [5] states any AI-generated content sent to a member must be reviewed and approved by a staff member first."
+    },
+    {
+      "claim": "The pilot results describe senior staff marking draft answers, consistent with human review being in place.",
+      "citations": [
+        3
+      ],
+      "supported": false,
+      "reason": "Citation [3] describes senior staff marking draft answers as part of an evaluation/accuracy assessment, not as evidence that every answer sent to a member was reviewed before sending. The marking process is about measuring accuracy, not about the pre-send review workflow. The claim conflates two different activities."
+    },
+    {
+      "claim": "Risk Committee confirmation of accuracy threshold is the outstanding condition.",
+      "citations": [
+        1,
+        3,
+        6
+      ],
+      "supported": true,
+      "reason": "Citation [1] lists Risk Committee confirmation as a condition; [6] sets the 95% threshold; [3] shows only 93.4% was achieved, so the condition is unmet."
+    },
+    {
+      "claim": "The Risk Committee set the threshold: the assistant must answer at least 95% of a test set of 500 real member enquiries correctly, as judged by senior staff.",
+      "citations": [
+        6
+      ],
+      "supported": true,
+      "reason": "Directly quoted from citation [6]."
+    },
+    {
+      "claim": "The October 2026 pilot results show 467 of 500 answers were correct, an accuracy of 93.4%.",
+      "citations": [
+        3
+      ],
+      "supported": true,
+      "reason": "Directly stated in citation [3]."
+    },
+    {
+      "claim": "93.4% falls short of the 95% threshold.",
+      "citations": [
+        3,
+        6
+      ],
+      "supported": true,
+      "reason": "93.4% [3] is less than 95% [6]."
+    },
+    {
+      "claim": "Most errors involved recent changes to contribution caps.",
+      "citations": [
+        7
+      ],
+      "supported": true,
+      "reason": "Directly stated in citation [7]."
+    },
+    {
+      "claim": "The pilot has not met the accuracy threshold required by the Risk Committee, so the committee cannot yet confirm readiness for a wider launch.",
+      "citations": [
+        1,
+        6
+      ],
+      "supported": true,
+      "reason": "Citation [1] requires Risk Committee confirmation before wider launch; [6] sets the threshold that was not met per [3]."
+    },
+    {
+      "claim": "Until accuracy improves to at least 95%, the pilot should not proceed to a wider launch.",
+      "citations": [
+        1,
+        6
+      ],
+      "supported": true,
+      "reason": "Citation [1] makes wider launch conditional on Risk Committee confirmation, and [6] defines the threshold as 95%."
+    },
+    {
+      "claim": "The other two conditions (Australian data residency and human review) appear to be in place.",
+      "citations": [
+        4,
+        5
+      ],
+      "supported": true,
+      "reason": "Citation [4] supports Australian data residency; citation [5] establishes the human review policy. The claim is appropriately hedged with 'appear to be.'"
+    }
+  ]
+}
